@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Mr.zhangBlog',
+  title: 'Hi,valor',
   description: 'Just playing around',
   head: [['link', { rel: 'icon', href: '/logo.png' }]],
   themeConfig: {    
