@@ -5,21 +5,19 @@ module.exports = {
   themeConfig: {    
     repo:'zp961214/Blog', 
     nav: [ 
-      { text: '首页', link: '/' }, 
-      { text: '中文博客', link: '/cn_post/' },
-      { text: '英文博客', link: '/en_post/' },
+      { text: '首页', link: '/' ,title:'Home'}, 
+      { text: '中文博客', link: '/post/',title:'Post' }
     ], 
     sidebar: {
-      '/cn_post/': ['/web/','/web/first'],
-      '/en_post/': ['/web/'] 
+      '/post/': ['/web/','/web/first']
     },
     sidebarDepth: 2
   }, 
-  configureWebpack: {
+  configureWebpack: { 
     resolve: {
       alias: {
         '@alias': 'assets'
-      }
+      } 
     }
   }
 }

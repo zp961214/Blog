@@ -1,9 +1,11 @@
 <template>
   <div class="component-item-list">
     <el-card
-      v-for="item in currentItems"
+      v-for="(item,index) in currentItems"
+      :key="index"
       shadow="hover"
-      @click.native="handlerClick(item.link)">
+      @click.native="handlerClick(item.link)"
+    >
       <div class="title">{{ item.title }}</div>
       <div class="card-content">
         <img v-if="item.img" :src="item.img" class="image">
@@ -23,47 +25,49 @@
       :page-sizes="pageSizes"
       :current-page="currNum"
       @size-change="pageSize = arguments[0]"
-      @current-change="currNum = arguments[0]">
+      @current-change="currNum = arguments[0]"
+    >
     </el-pagination>
   </div>
+
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       currNum: 1,
       pageSize: 5,
       pageSizes: [5, 10, 20, 50]
-    }
+    };
   },
 
   computed: {
-    items () {
-      return this.$page.frontmatter.items
+    items() {
+      return this.$page.frontmatter.items;
     },
 
-    total () {
-      return this.items.length || 0
+    total() {
+      return this.items.length || 0;
     },
 
-    currentItems () {
-      const { items, currNum, pageSize } = this
-      const start = (currNum - 1) * pageSize
-      return items.slice(start, start + pageSize)
+    currentItems() {
+      const { items, currNum, pageSize } = this;
+      const start = (currNum - 1) * pageSize;
+      return items.slice(start, start + pageSize);
     }
   },
 
   methods: {
-    formarter (data) {
-      return data.substring(0, 10)
+    formarter(data) {
+      return data.substring(0, 10);
     },
 
-    handlerClick (link) {
-      this.$router.push(this.$page.path + link + '.html')
+    handlerClick(link) {
+      this.$router.push(this.$page.path + link + ".html");
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -109,12 +113,14 @@ export default {
     margin: 30px 0;
     text-align: right;
 
-    .btn-next, .btn-prev {
+    .btn-next,
+    .btn-prev {
       background-color: #f6f6f6;
     }
 
     .el-pager {
-      .number, .el-icon {
+      .number,
+      .el-icon {
         background-color: #f6f6f6;
       }
     }
