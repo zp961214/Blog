@@ -13,6 +13,14 @@ module.exports = {
     },
     sidebarDepth: 2
   }, 
+  locales:{
+    '/':{
+      lang:'zh-CN'
+    },
+    '/post/':{
+      lang:'zh-CN'
+    },
+  },
   configureWebpack: { 
     resolve: {
       alias: {
