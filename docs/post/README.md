@@ -1,5 +1,6 @@
 ---
 component: item-list
+lang: zh-CN
 items:
   - title: git 命令行
     description: 关于我对 git 命令的一些记录。
