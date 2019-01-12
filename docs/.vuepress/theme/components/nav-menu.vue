@@ -1,17 +1,11 @@
 <template>
   <header class="nav-menu">
     <div class="site-desc">
-      <a class="logo" /></a>
+      <a class="logo"></a>
       <span class="author-name">Valor Eyo</span>
     </div>
-
     <ul>
-      <li
-        :class="{active:active(item)}"
-        v-for="item in nav"
-        :key="item.text"
-        @click="RouterTo(item)"
-      >{{item.text}}</li>
+      <li :class="{active:active(item)}" :key="item.text" @click="RouterTo(item)" v-for="item in nav">{{item.text}}</li>
     </ul>
   </header>
 </template>
@@ -38,6 +32,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .nav-menu {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -47,6 +42,7 @@ export default {
   color: #000;
   padding: 10px 2%;
   box-sizing: border-box;
+  background: #fff;
   .site-desc {
     position: absolute;
     top: 50%;
@@ -61,8 +57,9 @@ export default {
       margin-right: 16px;
     }
     .author-name {
-      font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
-      color:#2c3e50;
+      font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial,
+        sans-serif;
+      color: #2c3e50;
       line-height: 30px;
       font-size: 18px;
     }
@@ -87,6 +84,13 @@ export default {
       border-bottom: 2px solid #46bd87;
       margin-bottom: -2px;
     }
+  }
+}
+</style>
+<style lang="scss" scoped>
+@media screen and (min-width: 900px) {
+  .nav-menu {
+    display: block;
   }
 }
 </style>

@@ -8,7 +8,7 @@ items:
     date: 2018-03-18
     img: https://txs1992.github.io/mt-blog/git.jpeg
   - title: 谈谈 Vue 业务组件
-    description: 春节的假期刚刚过去不久，大脑还没有从假期综合症中缓过来，就迎来了开工的日子，不知道各位有没有收到开工大红包？有没有被虐狗？
+    description: 春节的假期刚刚过去不久，大脑还没有从假期综合症中缓过来，就迎来了开工的日子，不知道各位有没有收到开工大红包？有没有被虐狗？<br>123
     link: vue-business-component
     date: 2018-03-20
     img: https://txs1992.github.io/mt-blog/vue-business.png

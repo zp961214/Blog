@@ -1,4 +1,10 @@
-# git 命令行
+---
+title: git 命令行
+---
+
+春节的假期刚刚过去不久，大脑还没有从假期综合症中缓过来，就迎来了开工的日子，不知道各位有没有收到开工大红包？有没有被虐狗？
+
+<!-- more --> 
 
 <img src="https://github.com/txs1992/mt-blog/blob/master/docs/images/git.png"></img>
 
@@ -20,6 +26,8 @@
       4.2 [操作标签](#操作标签)
 
 <br/>
+
+
 
 ## 本地库
 
