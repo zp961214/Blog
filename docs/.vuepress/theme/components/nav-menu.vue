@@ -11,6 +11,7 @@
 </template>
 <script>
 export default {
+  name:'nav-menu',
   computed: {
     nav() {
       return this.$site.themeConfig.nav;

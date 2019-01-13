@@ -6,9 +6,9 @@
       <page></page>
     </div>
   </div>
-</template>
+</template> 
 <script>
-import Page from "./components/page.vue";
+import Page from "./views/page.vue";
 import NavMenu from "./components/nav-menu.vue";
 import mobileMenu from "./components/mobile-menu";
 import cursor from "./images/cursor.png";

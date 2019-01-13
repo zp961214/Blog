@@ -24,7 +24,7 @@
             <span class="dot">•</span>
             <span class="label-desc">阅读次数</span>
           </span>
-        </div> 
+        </div>
         <div class="post-content">
           <div class="description" v-html="item.excerpt"></div>
           <img :src="item.img" class="image" v-if="item.img">
@@ -42,6 +42,7 @@
 
 <script>
 export default {
+  name:'post',
   data() {
     return {
       currNum: 1,
@@ -50,12 +51,12 @@ export default {
   },
 
   computed: {
-    path(){
+    path() {
       return this.$page.path;
     },
     items() {
-      const is_post =new RegExp('^'+this.path);
-      return  this.$site.pages.filter(v=>is_post.test(v.path));
+      const is_post = new RegExp("^" + this.path + ".*(.html)$");
+      return this.$site.pages.filter(v => is_post.test(v.path));
     },
 
     total() {
@@ -82,7 +83,6 @@ export default {
 <style lang="scss">
 .post {
   box-sizing: border-box;
-  padding: 0 5rem;
   .post-item {
     background: #fff;
     position: relative;
@@ -225,11 +225,13 @@ export default {
   }
 }
 @media screen and (max-width: 900px) {
-  .post-date {
-    display: none;
-  }
-  .post-badge {
-    display: none;
+  .post .post-item {
+    .post-date {
+      display: none;
+    }
+    .post-badge {
+      display: none;
+    }
   }
 }
 </style>
