@@ -38,6 +38,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .nav-menu {
+    background: #fff;
   position: fixed;
   top: 0;
   left: 0;
@@ -87,6 +88,13 @@ export default {
       border-bottom: 2px solid #46bd87;
       margin-bottom: -2px;
     }
+  }
+}
+</style>
+<style lang="scss" scoped>
+@media screen and (max-width: 900px) {
+  .nav-menu{
+    display: none;
   }
 }
 </style>

@@ -2,35 +2,36 @@
   <div class="component-home">
     <aside class="site-wrapper">
       <div class="site-author">
-        <img alt="author-Avatar" src="../images/avatar.jpg">
+        <img
+          src="../images/avatar.jpg"
+          alt="author-Avatar"
+        >
         <p class="description">让我试试</p>
         <ul class="link-of-author-motion">
-          <li :key="i" @click="openPage(item.href)" v-for="(item,i) in hrefList">
+          <li
+            v-for="(item,i) in hrefList"
+            :key="i"
+            @click="openPage(item.href)"
+          >
             <i :class="['iconfont',item.icon]"></i>
             <span>{{item.label}}</span>
           </li>
         </ul>
         <section class="site-state">
-          <div class="site-item"> 
-            <span class="site-total">52</span>
-            <span class="site-item-desc">日志</span>
-          </div>
-          <div class="site-item">
-            <span class="site-total">4</span>
-            <span class="site-item-descl">分类</span>
-          </div>
+          <div class="site-item"><span class="site-total">52</span> <span class="site-item-desc">日志</span></div>
+          <div class="site-item"><span class="site-total">4</span><span class="site-item-descl">分类</span></div>
         </section>
       </div>
     </aside>
   </div>
 </template>
- 
+
 <script>
-export default {  
-  name: "Home",  
+export default {
+  name: "Home",
   data() {
     return {
-      hrefList:  [ 
+      hrefList: [
         {
           icon: "icon-tubiao214",
           label: "新浪微博",
