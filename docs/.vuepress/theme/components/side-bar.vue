@@ -1,33 +1,31 @@
 <template>
-  <div class="component-home">
-    <aside class="site-wrapper">
-      <div class="site-author">
-        <img alt="author-Avatar" src="../images/avatar.jpg">
-        <p class="description">让我试试</p>
-        <ul class="link-of-author-motion">
-          <li :key="i" @click="openPage(item.href)" v-for="(item,i) in hrefList">
-            <i :class="['iconfont',item.icon]"></i>
-            <span>{{item.label}}</span>
-          </li>
-        </ul>
-        <section class="site-state">
-          <div class="site-item"> 
-            <span class="site-total">52</span>
-            <span class="site-item-desc">日志</span>
-          </div>
-          <div class="site-item">
-            <span class="site-total">4</span>
-            <span class="site-item-descl">分类</span>
-          </div>
-        </section>
-      </div>
-    </aside>
-  </div>
+  <aside class="site-bar">
+    <div class="site-author">
+      <img alt="author-Avatar" src="../images/avatar.jpg">
+      <p class="description">让我试试</p>
+      <ul class="link-of-author-motion">
+        <li :key="i" @click="openPage(item.href)" v-for="(item,i) in hrefList">
+          <i :class="['iconfont',item.icon]"></i>
+          <span>{{item.label}}</span>
+        </li>
+      </ul>
+      <section class="site-state">
+        <div class="site-item">
+          <span class="site-total">52</span>
+          <span class="site-item-desc">日志</span>
+        </div>
+        <div class="site-item">
+          <span class="site-total">4</span>
+          <span class="site-item-descl">分类</span>
+        </div>
+      </section>
+    </div>
+  </aside>
 </template>
  
 <script>
-export default {  
-  name: "Home",  
+export default {
+  name: "sidebar",
   data() {
     return {
       hrefList:  [ 
@@ -82,10 +80,9 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "../../assets/icon/href/iconfont.css";
-.site-wrapper {
+.site-bar {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -183,10 +180,3 @@ export default {
   }
 }
 </style>
-
-
-
-
-
-
-

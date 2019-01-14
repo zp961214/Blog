@@ -9,6 +9,7 @@
 import Home from "./Home.vue";
 import Post from "./Post.vue";
 export default {
+  name:'page',
   components: { Home, Post },
   data() {
     return {};

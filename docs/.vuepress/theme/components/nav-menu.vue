@@ -93,7 +93,7 @@ export default {
 </style>
 <style lang="scss" scoped>
 @media screen and (max-width: 900px) {
-  .nav-menu{
+  .nav-menu{ 
     display: none;
   }
 }

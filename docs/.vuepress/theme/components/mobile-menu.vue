@@ -5,7 +5,8 @@
 </template>
 <script>
 export default {
-  data() {
+  name:'mobile-menu',
+  data(){
     return {
       scrollTop: null
     };
