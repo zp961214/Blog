@@ -1,14 +1,14 @@
 <template>
   <div class="component-home">
-    <side-bar></side-bar>
+    <aside-info></aside-info>
   </div>
 </template>
 
 <script>
-import sideBar from '../components/side-bar';
+import asideInfo from '../components/aside-info.vue';
 export default {
   name: "Home",
-  components:{sideBar}
+  components:{asideInfo}
 };
 </script>
 
