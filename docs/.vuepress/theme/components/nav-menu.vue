@@ -38,16 +38,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .nav-menu {
-    background: #fff;
+    background: rgba(251, 253, 251,0.9);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 60px;
-  box-shadow: 0 2px 8px #f0f1f2;
+  box-shadow: 0 2px 8px rgba(191, 194, 191, 0.623);
   color: #000;
   padding: 10px 2%;
   box-sizing: border-box;
+  z-index: 6;
   .site-desc {
     position: absolute;
     top: 50%;

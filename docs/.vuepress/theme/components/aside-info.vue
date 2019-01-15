@@ -1,5 +1,5 @@
 <template>
-  <aside class="site-bar">
+  <aside class="site-bar" >
     <div class="site-author">
       <img alt="author-Avatar" src="../images/avatar.jpg">
       <p class="description">让我试试</p>
