@@ -3,9 +3,7 @@
     <nav-menu></nav-menu>
     <mobileMenu></mobileMenu>
     <banner-section></banner-section>
-    <div class="page-main">
       <page></page>
-    </div>
   </div>
 </template> 
 <script>
@@ -28,25 +26,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.page-main {
-  background: #efefef;
-  box-sizing: border-box;
-  padding-top: 60px;
-  .theme-container {
-    // background-image: radial-gradient(
-    //   ellipse farthest-corner at 50% 0,
-    //   #6df297 0%,
-    //   #9cffb8 100%
-    // );
-    height: 100%;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .page-main {
-    padding-top: 40px;
-  }
-}
 </style>
 <style lang="scss">
 @import './styles/base.scss';
