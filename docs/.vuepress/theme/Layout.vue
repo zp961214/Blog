@@ -1,9 +1,9 @@
 <template>
   <div class="theme-container">
-    <nav-menu/>
-    <mobileMenu/>
-    <banner-section/>
-    <page/> 
+    <nav-menu />
+    <mobileMenu />
+    <banner-section />
+    <page />
   </div>
 </template>
 <script>
