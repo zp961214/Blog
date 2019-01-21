@@ -1,11 +1,11 @@
 <template>
   <div class="theme-container">
-    <nav-menu></nav-menu>
-    <mobileMenu></mobileMenu>
-    <banner-section></banner-section>
-      <page></page>
+    <nav-menu/>
+    <mobileMenu/>
+    <banner-section/>
+    <page/> 
   </div>
-</template> 
+</template>
 <script>
 import Page from './views/page.vue';
 import NavMenu from './components/nav-menu.vue';
@@ -25,8 +25,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
 <style lang="scss">
 @import './styles/base.scss';
 @import './styles/theme.scss';
