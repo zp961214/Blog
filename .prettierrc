@@ -1,6 +1,5 @@
 {
   "printWidth": 180,
-  "singleQuote": true,
-  "filepath": "docs"
+  "singleQuote": true
 }
  

@@ -18,9 +18,7 @@ module.exports = {
       lang: 'zh-CN'
     }
   },
-  configureWebpack: {
-    resolve: {
-      alias: { '@alias': 'assets' }
-    }
+  configureWebpack: (config, isServer) => {
+    // console.log(config.relus);
   }
 };

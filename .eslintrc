@@ -1,6 +1,6 @@
  { 
-  "extends": ["prettier","plugin:vue/recommended"],
-  "plugins": ["prettier"],
+  "extends": ["prettier","plugin:vue/essential"],
+  "plugins": ["prettier"], 
   "parserOptions": { 
     "ecmaVersion": 2018,
     "sourceType": "module"
