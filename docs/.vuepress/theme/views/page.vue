@@ -1,8 +1,8 @@
 <template>
     <div class="page-main">
-        <Home v-if="$route.path==='/'"></Home>
+        <Home v-if="$route.path === '/'"></Home>
         <Post v-if="isPost"></Post>
-        <Content v-else/>
+        <Content v-else />
     </div>
 </template>
 <script>
@@ -54,4 +54,3 @@ export default {
     }
 }
 </style>
-

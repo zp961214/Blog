@@ -1,182 +1,182 @@
 <template>
-  <aside class="site-bar" >
-    <div class="site-author">
-      <img alt="author-Avatar" src="../images/avatar.jpg">
-      <p class="description">让我试试</p>
-      <ul class="link-of-author-motion">
-        <li :key="i" @click="openPage(item.href)" v-for="(item,i) in hrefList">
-          <i :class="['iconfont',item.icon]"></i>
-          <span>{{item.label}}</span>
-        </li>
-      </ul>
-      <section class="site-state">
-        <div class="site-item">
-          <span class="site-total">52</span>
-          <span class="site-item-desc">日志</span>
+    <aside class="site-bar">
+        <div class="site-author">
+            <img alt="author-Avatar" src="../images/avatar.jpg" />
+            <p class="description">让我试试</p>
+            <ul class="link-of-author-motion">
+                <li :key="i" @click="openPage(item.href)" v-for="(item, i) in hrefList">
+                    <i :class="['iconfont', item.icon]"></i>
+                    <span>{{ item.label }}</span>
+                </li>
+            </ul>
+            <section class="site-state">
+                <div class="site-item">
+                    <span class="site-total">52</span>
+                    <span class="site-item-desc">日志</span>
+                </div>
+                <div class="site-item">
+                    <span class="site-total">4</span>
+                    <span class="site-item-descl">分类</span>
+                </div>
+            </section>
         </div>
-        <div class="site-item">
-          <span class="site-total">4</span>
-          <span class="site-item-descl">分类</span>
-        </div>
-      </section>
-    </div>
-  </aside>
+    </aside>
 </template>
- 
+
 <script>
 export default {
-  name: "sidebar",
-  data() {
-    return {
-      hrefList:  [ 
-        {
-          icon: "icon-tubiao214",
-          label: "新浪微博",
-          href: "http://www.baidu.com"
-        },
-        {
-          icon: "icon-zhihu",
-          label: "知乎",
-          href: ""
-        },
-        {
-          icon: "icon-QQ",
-          label: "QQ",
-          href: ""
-        },
-        {
-          icon: "icon-wo",
-          label: "关于我",
-          href: ""
-        },
-        {
-          icon: "icon-github",
-          label: "Github",
-          href: ""
-        }
-      ]
-    };
-  },
-  computed: {
-    front() {
-      return this.$page.frontmatter;
+    name: 'sidebar',
+    data() {
+        return {
+            hrefList: [
+                {
+                    icon: 'icon-tubiao214',
+                    label: '新浪微博',
+                    href: 'http://www.baidu.com'
+                },
+                {
+                    icon: 'icon-zhihu',
+                    label: '知乎',
+                    href: ''
+                },
+                {
+                    icon: 'icon-QQ',
+                    label: 'QQ',
+                    href: ''
+                },
+                {
+                    icon: 'icon-wo',
+                    label: '关于我',
+                    href: ''
+                },
+                {
+                    icon: 'icon-github',
+                    label: 'Github',
+                    href: ''
+                }
+            ]
+        };
     },
+    computed: {
+        front() {
+            return this.$page.frontmatter;
+        },
 
-    nav() {
-      return this.front.nav || [];
-    }
-  },
-  methods: {
-    handlerClick({ link = "" }) {
-      if (/^http/.test(link)) {
-        window.open(link);
-      } else {
-        this.$router.push(link);
-      }
+        nav() {
+            return this.front.nav || [];
+        }
     },
-    openPage(href) {
-      window.open(href);
+    methods: {
+        handlerClick({ link = '' }) {
+            if (/^http/.test(link)) {
+                window.open(link);
+            } else {
+                this.$router.push(link);
+            }
+        },
+        openPage(href) {
+            window.open(href);
+        }
     }
-  }
 };
 </script>
 <style lang="scss" scoped>
-@import "../../assets/icon/href/iconfont.css";
+@import '../../assets/icon/href/iconfont.css';
 .site-bar {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-family: "PingFang SC", "Microsoft YaHei", Lato, sans-serif;
-  width: 285px;
-  background: white;
-  padding: 20px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  color: #555;
-  .site-author {
-    width: 100%;
-    img {
-      display: block;
-      width: 100%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'PingFang SC', 'Microsoft YaHei', Lato, sans-serif;
+    width: 285px;
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: #555;
+    .site-author {
+        width: 100%;
+        img {
+            display: block;
+            width: 100%;
+        }
+        p {
+            font-size: 14px;
+            font-weight: bolder;
+        }
+        ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-left: 0;
+            > li {
+                position: relative;
+                width: 40px;
+                height: 40px;
+                background: rgba(0, 0, 0, 0.1);
+                border-radius: 50%;
+                text-align: center;
+                line-height: 40px;
+                &:hover {
+                    background: #97dffd;
+                    color: #fff;
+                    span {
+                        opacity: 1;
+                        transform: translate(-50%, -160%);
+                    }
+                }
+                span {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -130%);
+                    background: rgba(17, 17, 17, 0.7);
+                    z-index: 10;
+                    color: #fff;
+                    font-size: 12px;
+                    word-break: keep-all;
+                    border-radius: 6px;
+                    padding: 2px 4px;
+                    box-sizing: border-box;
+                    transition: all 0.18s ease 0.05s;
+                    text-shadow: none;
+                    opacity: 0;
+                    line-height: 30px;
+                }
+            }
+        }
+        .site-state {
+            display: flex;
+            justify-content: center;
+            .site-item {
+                display: flex;
+                flex-direction: column;
+                color: #555;
+                cursor: pointer;
+                &:hover {
+                    color: #222;
+                }
+                &:first-child {
+                    margin-right: 10px;
+                }
+                &:last-child {
+                    margin-left: 10px;
+                }
+                .site-total {
+                    color: inherit;
+                    text-align: center;
+                }
+                .site-item-desc {
+                    color: #00a7e0;
+                }
+                .site-item-descl {
+                    color: #ff3f1a;
+                }
+            }
+        }
     }
-    p {
-      font-size: 14px;
-      font-weight: bolder;
-    }
-    ul {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding-left: 0;
-      > li {
-        position: relative;
-        width: 40px;
-        height: 40px;
-        background: rgba(0, 0, 0, 0.1);
-        border-radius: 50%;
+    .description {
         text-align: center;
-        line-height: 40px;
-        &:hover {
-          background: #97dffd;
-          color: #fff;
-          span {
-            opacity: 1;
-            transform: translate(-50%, -160%);
-          }
-        }
-        span {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -130%);
-          background: rgba(17, 17, 17, 0.7);
-          z-index: 10;
-          color: #fff;
-          font-size: 12px;
-          word-break: keep-all;
-          border-radius: 6px;
-          padding: 2px 4px;
-          box-sizing: border-box;
-          transition: all 0.18s ease 0.05s;
-          text-shadow: none;
-          opacity: 0;
-          line-height: 30px;
-        }
-      }
     }
-    .site-state {
-      display: flex;
-      justify-content: center;
-      .site-item {
-        display: flex;
-        flex-direction: column;
-        color: #555;
-        cursor: pointer;
-        &:hover {
-          color: #222;
-        }
-        &:first-child {
-          margin-right: 10px;
-        }
-        &:last-child {
-          margin-left: 10px;
-        }
-        .site-total {
-          color: inherit;
-          text-align: center;
-        }
-        .site-item-desc {
-          color: #00a7e0;
-        }
-        .site-item-descl {
-          color: #ff3f1a;
-        }
-      }
-    }
-  }
-  .description {
-    text-align: center;
-  }
 }
 </style>

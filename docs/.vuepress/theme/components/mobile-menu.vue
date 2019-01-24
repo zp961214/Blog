@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div :class="['mobile-menu',{on:Istop}]">
-            <a @click="value=true" class="menu-button"></a>
+        <div :class="['mobile-menu', { on: Istop }]">
+            <a @click="value = true" class="menu-button"></a>
         </div>
-        <div :class="['side-bar',{open:value}]">123123</div>
+        <div :class="['side-bar', { open: value }]">123123</div>
     </div>
 </template>
 <script>
@@ -26,7 +26,7 @@ export default {
         setScrollTop() {
             this.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         },
-        
+
         init() {
             let el = document.querySelector('.side-bar');
             this.bind(el, Handler => {

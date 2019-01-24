@@ -1,24 +1,24 @@
 module.exports = {
-  title: 'Hi,valor',
-  description: 'Just playing around',
-  head: [['link', { rel: 'icon', href: '/logo.png' }]],
-  themeConfig: {
-    repo: 'zp961214/Blog',
-    nav: [{ text: '首页', link: '/', title: 'Home' }, { text: '中文博客', link: '/post/', title: 'Post' }],
-    sidebar: {
-      '/post/': ['/web/', '/web/first']
+    title: 'Hi,valor',
+    description: 'Just playing around',
+    head: [['link', { rel: 'icon', href: '/logo.png' }]],
+    themeConfig: {
+        repo: 'zp961214/Blog',
+        nav: [{ text: '首页', link: '/', title: 'Home' }, { text: '中文博客', link: '/post/', title: 'Post' }],
+        sidebar: {
+            '/post/': ['/web/', '/web/first']
+        },
+        sidebarDepth: 2
     },
-    sidebarDepth: 2
-  },
-  locales: {
-    '/': {
-      lang: 'zh-CN'
+    locales: {
+        '/': {
+            lang: 'zh-CN'
+        },
+        '/post/': {
+            lang: 'zh-CN'
+        }
     },
-    '/post/': {
-      lang: 'zh-CN'
+    configureWebpack: (config, isServer) => {
+        // console.log(config.relus);
     }
-  },
-  configureWebpack: (config, isServer) => {
-    // console.log(config.relus);
-  }
 };
