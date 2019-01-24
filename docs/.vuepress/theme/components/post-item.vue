@@ -6,7 +6,7 @@
         </div>
         <div class="post-badge">13</div>
         <div class="post-content">
-            <div class="title">
+            <div class="title" @click="handlerClick(content.path)">
                 <span>{{ content.title }}</span>
             </div>
             <div class="post-meta">
@@ -25,7 +25,7 @@
             </div>
             <div class="post-content">
                 <div class="description" v-html="content.excerpt"></div>
-                <img :src="content.img" class="image" v-if="content.img">
+                <img :src="content.img" class="image" v-if="content.img" />
             </div>
             <div class="post-button">
                 <a @click="handlerClick(content.path)" class="btn" rel="contents">阅读全文 »</a>
@@ -202,4 +202,3 @@ export default {
     }
 }
 </style>
-

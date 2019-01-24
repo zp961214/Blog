@@ -2,11 +2,9 @@
 title: 如何优雅解决 iframe 无法触发 clickOutside
 ---
 
-### 前言
+>  在公司的一次小组分享会上，[组长](https://github.com/coolzjy) 给我们分享了一个他在项目中遇到的一个问题。在一个嵌入 iframe 的系统中，当我们点击 Dropdown 展开后，再去点击 iframe 发现无法触发 Dropdown 的 clickOutside 事件，导致 Dropdown 无法收起。[查看示例](https://jsfiddle.net/_MT_/wLkgu614/29/)
 
-> 在公司的一次小组分享会上，[组长](https://github.com/coolzjy) 给我们分享了一个他在项目中遇到的一个问题。在一个嵌入 iframe 的系统中，当我们点击 Dropdown 展开后，再去点击 iframe 发现无法触发 Dropdown 的 clickOutside 事件，导致 Dropdown 无法收起。
 
-[查看示例](https://jsfiddle.net/_MT_/wLkgu614/29/)
 
 <!-- more --> 
 
