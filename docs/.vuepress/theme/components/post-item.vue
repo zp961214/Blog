@@ -1,8 +1,8 @@
 <template>
     <div class="post-item">
         <div class="post-date">
-            <p class="month">12月</p>
-            <p class="day">1</p>
+            <p class="month">{{ content.lastUpdated | format('MM') }}月</p>
+            <p class="day">{{ content.lastUpdated | format('DD') }}</p>
         </div>
         <div class="post-badge">13</div>
         <div class="post-content">
@@ -205,6 +205,18 @@ export default {
         .post-badge {
             display: none;
         }
+    }
+}
+</style>
+<style lang="scss">
+.post-item {
+    h1 {
+        margin: 0 0 10px;
+        font-size: 20px;
+    }
+    h2 {
+        margin: 0 0 10px;
+        font-size: 16px;
     }
 }
 </style>

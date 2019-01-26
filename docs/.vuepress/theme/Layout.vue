@@ -11,7 +11,6 @@ import Page from './views/page.vue';
 import NavMenu from './components/nav-menu.vue';
 import mobileMenu from './components/mobile-menu';
 import bannerSection from './components/banner-section';
-import cursor from './images/cursor.png';
 
 export default {
     name: 'Layout',
@@ -22,7 +21,9 @@ export default {
         bannerSection
     },
     data() {
-        return {};
+        return {
+            reSet: null
+        };
     },
     created() {
         window.addEventListener('visibilitychange', this.visibilitychange);
@@ -35,10 +36,12 @@ export default {
             document.title = '(˘•ω•˘)喔噢，页面不见啦';
         },
         pageShow() {
+            clearTimeout(this.reSet);
             document.title = 'φ(>ω<*)咦，又好啦';
-            setTimeout(() => {
-                document.title = 'hi,valor';
-            }, 2500);
+            this.reSet = setTimeout(this.reSetTitle, 2500);
+        },
+        reSetTitle() {
+            document.title = 'hi,valor';
         }
     }
 };
@@ -47,3 +50,4 @@ export default {
 @import './styles/base.scss';
 @import './styles/theme.scss';
 </style>
+<style src="./styles/styles/theme.styl" lang="stylus"></style>

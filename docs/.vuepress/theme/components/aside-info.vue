@@ -11,7 +11,7 @@
             </ul>
             <section class="site-state">
                 <div class="site-item">
-                    <span class="site-total">52</span>
+                    <span class="site-total">{{ logCount }}</span>
                     <span class="site-item-desc">日志</span>
                 </div>
                 <div class="site-item">
@@ -26,6 +26,11 @@
 <script>
 export default {
     name: 'sidebar',
+    props: {
+        logCount: {
+            type: [Number, String]
+        }
+    },
     data() {
         return {
             hrefList: [

@@ -1,4 +1,6 @@
-# 使用 Json Server 搭建本地 Mock 服务
+---
+title: 使用 Json Server 搭建本地 Mock 服务
+---
 
 > 使用 json-server 开启一个服务非常简单，只需要写一个 json 文件，然后执行 json-server —watch xx.json 就可以开启一个本地的数据服务了。默认端口是 3000， localhost:3000
 

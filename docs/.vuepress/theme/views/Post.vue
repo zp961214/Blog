@@ -2,9 +2,9 @@
     <div class="post">
         <div class="container">
             <div class="post-container">
-                <post-item v-for="(content, index) in currentItems" :key="index" :content="content" class="post-item" />
+                <post-item v-for="content in currentItems" :key="content.key" :content="content" class="post-item" />
             </div>
-            <aside-info class="post-aside" />
+            <aside-info class="post-aside" :log-count="total" />
         </div>
         <div class="Pagetion">
             <el-pagination :current-page="currNum" :page-size="pageSize" :total="total" layout="prev, pager, next" @current-change="currNum = arguments[0]" />
@@ -31,7 +31,7 @@ export default {
         },
         items() {
             const is_post = new RegExp('^' + this.path + '.*(.html)$');
-            return this.$site.pages.filter(v => is_post.test(v.path));
+            return this.$site.pages.filter(v => is_post.test(v.path)).sort((a, b) => b.lastUpdated - a.lastUpdated);
         },
 
         total() {
@@ -71,7 +71,7 @@ export default {
             left: unset;
             top: 0;
             right: 0;
-            height: 350px;
+            height: max-content;
             box-sizing: border-box;
             transform: translate(0, 0);
         }
