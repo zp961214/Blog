@@ -3,8 +3,8 @@
         <div class="site-banner-author">
             <img alt="avatar" class="avatar tada" src="../images/headpic.png" />
             <div class="site-banner-desc">
-                <span>想要我写的代码，</span>
-                <span>对世界有一点改变。</span>
+                <span>今天也是元气满满的一天。</span>
+                <span></span>
             </div>
         </div>
     </div>

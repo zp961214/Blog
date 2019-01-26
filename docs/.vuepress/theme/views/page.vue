@@ -1,16 +1,18 @@
 <template>
     <div class="page-main">
         <Home v-if="$route.path === '/'"></Home>
-        <Post v-if="isPost"></Post>
-        <Content v-else />
+        <Post v-else-if="isPost"></Post>
+        <detail-page v-else></detail-page>
     </div>
 </template>
 <script>
 import Home from './Home.vue';
 import Post from './Post.vue';
+import DetailPage from './DetailPage';
+import axios from 'axios';
 export default {
     name: 'page',
-    components: { Home, Post },
+    components: { Home, Post, DetailPage },
     data() {
         return {};
     },
@@ -29,7 +31,7 @@ export default {
         }
     },
     created() {
-        console.log(1);
+        axios.get('timestamp');
     }
 };
 </script>

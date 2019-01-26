@@ -1,7 +1,5 @@
 # 在 Vue 中使用高德地图的一些问题
 
-![](https://github.com/1969290646/blog/blob/master/doc/201801/source/banner.png)
-
 ## 前言
 
 前段时间做了一个和地图相关的项目，项目中有多个地图页面，这些地图页面有一个侧边栏，一个筛选组件，根据筛选组件的条件请求数据，然后在地图上放覆盖物。在实际开发中遇到了一些问题做了一些总结。
@@ -109,7 +107,5 @@ export default {
 了解到原因后，问题就很好解决了，将地图渲染的数据从 Vue 中抽离，需要渲染的时候单独调用渲染方法不再将数据交给 Vue 处理。
 
 下面是关数据被 Vue 管理和不被 Vue 管理的一个性能测试。
-
-![](https://github.com/1969290646/blog/blob/master/doc/201801/source/test.png)
 
 [测试链接](https://jsperf.com/test-vue-prop-data)

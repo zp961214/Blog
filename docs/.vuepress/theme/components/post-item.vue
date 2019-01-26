@@ -11,7 +11,7 @@
             </div>
             <div class="post-meta">
                 <span class="date">
-                    发表于
+                    <span>发表于{{ content.lastUpdated | format('YYYY-MM-DD') }}</span>
                     <i class="el-icon-date"></i>
                 </span>
                 <span class="words-count">
@@ -35,11 +35,17 @@
 </template>
 
 <script>
+import { format } from 'date-fns';
 export default {
     name: 'post-item',
     props: {
         content: {
             type: Object
+        }
+    },
+    filters: {
+        format(value, type) {
+            return format(value, type);
         }
     },
     data() {
