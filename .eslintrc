@@ -1,12 +1,17 @@
- { 
-  "extends": ["prettier","plugin:vue/essential"],
-  "plugins": ["prettier"], 
-  "parserOptions": { 
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "rules": {
-    "prettier/prettier": "warn"
-  },
-  "root": true
- }
+{
+    "extends": ["prettier", "eslint:recommended", "plugin:vue/essential"],
+    "plugins": ["prettier"],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "globals": {
+        "module": true,
+        "process":true
+    },
+    "rules": {
+        "no-console": "off",
+        "prettier/prettier": "warn"
+    },
+    "root": true
+}
