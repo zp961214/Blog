@@ -8,7 +8,14 @@ module.exports = {
         sidebar: {
             '/post/': ['/web/', '/web/first']
         },
-        sidebarDepth: 2
+        sidebarDepth: 2,
+        lastUpdated: 'Last Updated',
+        serviceWorker: {
+            updatePopup: {
+                message: '发现有新的内容更新',
+                buttonText: '更新'
+            }
+        }
     },
     locales: {
         '/': {
@@ -19,6 +26,6 @@ module.exports = {
         }
     },
     configureWebpack: (config, isServer) => {
-        // console.log(config.relus);
+        return {};
     }
 };
