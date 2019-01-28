@@ -6,13 +6,14 @@
         </div>
         <nav>
             <ul>
-                <li v-for="(item, index) in headers" :key="item.title">{{ index + 1 + '.' + item.title }}</li>
+                <li v-for="(item, index) in headers" @click="scrollToView(item.title)" :key="item.title">{{ index + 1 + '.' + item.title }}</li>
             </ul>
         </nav>
     </div>
 </template>
 
 <script>
+import animate from '../../assets/js/animate.js';
 export default {
     name: 'DetailPage',
     data() {
@@ -23,7 +24,13 @@ export default {
             return this.$page.headers;
         }
     },
-    methods: {}
+    methods: {
+        scrollToView(id) {
+            const el = document.querySelector('#' + id);
+            const scrollTag = document.body.scrollTop ? document.body : document.documentElement;
+            animate(scrollTag, { scrollTop: el.offsetTop - 60 });
+        }
+    }
 };
 </script>
 <style lang="scss" scoped>
@@ -61,6 +68,7 @@ export default {
         flex: 0 0 300px;
         ul {
             li {
+                cursor: pointer;
                 margin-bottom: 5px;
             }
         }
@@ -70,6 +78,10 @@ export default {
 <style lang="scss">
 #DetailPage {
     .content {
+    }
+    img {
+        display: block;
+        max-width: 100%;
     }
 }
 </style>
