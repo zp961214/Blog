@@ -4,10 +4,9 @@
             <h1 class="title">{{ this.$page.title }}</h1>
             <Content></Content>
         </div>
-
         <nav>
             <ul>
-                <li v-for="item in headers" :key="item.title">{{ item.level + ':' + item.title }}</li>
+                <li v-for="(item, index) in headers" :key="item.title">{{ index + 1 + '.' + item.title }}</li>
             </ul>
         </nav>
     </div>
