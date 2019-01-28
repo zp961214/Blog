@@ -14,7 +14,7 @@ body {
     font-family: -apple-system BlinkMacSystemFont, 'Segoe UI' Roboto Oxygen Ubuntu Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue' sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: $textColor;
 }
 
@@ -173,14 +173,14 @@ a.header-anchor {
 
 code,
 kbd {
-    font-family: source-code-pro Menlo Monaco Consolas, 'Courier New' monospace;
+    font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace
 }
 
 p,
 ul,
 ol {
     line-height: 1.7;
-    margin-bottom: 20px;
+    margin:18px 0;
 }
 
 hr {

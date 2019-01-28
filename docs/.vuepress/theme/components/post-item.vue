@@ -81,6 +81,7 @@ export default {
         color: #fff;
         text-align: center;
         .month {
+            margin-top: 0;
             line-height: 16px;
         }
         .day {
@@ -202,6 +203,7 @@ export default {
         .post-date {
             display: none;
         }
+
         .post-badge {
             display: none;
         }
@@ -217,6 +219,17 @@ export default {
     h2 {
         margin: 0 0 10px;
         font-size: 16px;
+    }
+    .description {
+        p {
+            &:first-child {
+                margin-top: 0;
+            }
+            img {
+                display: block;
+                max-width: 100%;
+            }
+        }
     }
 }
 </style>
