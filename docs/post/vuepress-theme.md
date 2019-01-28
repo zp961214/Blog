@@ -20,7 +20,7 @@ title: VuePress 主题踩坑
 
 `Layout` 组件会将 `docs` 目录下所有的 `.md` 文件都执行一次，同时将这个页面的元数据暴露为 `this.$page` 属性，而整个网站的元数据暴露为 `this.$site` 属性，他们会被注入到当前被应用到的主题组件中。
 
-```json
+```json 
 {
   "title": "Hello MT-BLOG",
   "description": "12345，上山打老虎。",
