@@ -12,30 +12,45 @@ title: VuePress 快速踩坑
 
 第一步为您的项目安装 VuePress，如果您的项目代码中并没有`package.json`文件，请先执行`npm init`。
 
-```shell
-npm install -D vuepress // 或者 yarn add -D vuepress
+ 
 
-// 在项目根目录下新加 docs 文件夹
-mkdir docs
+```bash
+# 安装
+yarn global add vuepress # 或者：npm install -g vuepress
 
-// 新建一个 Markdown 文件
-echo "# Hello VuePress!" > docs/README.md
+# 新建一个 markdown 文件
+echo '# Hello VuePress!' > README.md
+
+# 开始写作
+vuepress dev .
+
+# 构建静态文件
+vuepress build .
 ```
+
+
 
 第二步在`package.json`文件中加入这些脚本，并运行。
 
-```javascript
-// package.json
-"scripts": {
-  "docs:dev": "vuepress dev docs",
-  "docs:build": "vuepress build docs"
+```json
+{
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
 }
+```
 
-// 本地运行文档
-npm run docs:dev
+然后就可以开始写作了:
 
-// 编译打包生产静态 HTML 文件
-npm run docs:build
+```bash
+yarn docs:dev # 或者：npm run docs:dev
+```
+
+生产静态文件运行在生产环境，运行：
+
+```bash
+yarn docs:build # 或者：npm run docs:build
 ```
 
 VuePress 对 Markdown 做了一些扩展，使得我们可以在 Markdown 文件中使用 YAML 语法，VuePress 使用 ---来隔离 Markdown 语法。
@@ -153,7 +168,7 @@ export default ({
 
 在 Vue 正常开发中，有些时候我们可能会需要做一些自定义的组件，在 VuePress 中我们可以在`.vuepress/components`目录中编写我们的自定义组件，VuePress 在编译时遍历该目录中所有的`*.vue`文件，并见它们注册为全局组件。
 
-```html
+```vue
 // 注册一个自定义组件
 // docs/.vuepress/components/my-hello.vue
 <template>
@@ -185,23 +200,6 @@ export default {
 </script>
 ```
 
-<template>
-  <div class="test-demo">
-    {{ msg }}
-    <my-hello></my-hello>
-    <el-button>button</el-button>
-  </div>
-</template>
-
-<script>
-export default {
-  data () {
-    return {
-      msg: 'Hello VuePress!'
-    }
-  }
-}
-</script>
 
 ## 部署到 Github pages
 

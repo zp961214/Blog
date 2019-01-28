@@ -8,7 +8,7 @@ title: VuePress 主题踩坑
 
 首先在 `.vuepress` 目录新建一个 `theme` 文件夹，然后再创建一个 `Layout.vue` 的文件。
 
-```text
+```markdown
 .vuepress
    └─ theme
       └─ Layout.vue
@@ -20,25 +20,37 @@ title: VuePress 主题踩坑
 
 `Layout` 组件会将 `docs` 目录下所有的 `.md` 文件都执行一次，同时将这个页面的元数据暴露为 `this.$page` 属性，而整个网站的元数据暴露为 `this.$site` 属性，他们会被注入到当前被应用到的主题组件中。
 
-```json 
-{
-  "title": "Hello MT-BLOG",
-  "description": "12345，上山打老虎。",
-  "base": "/mt-blog/",
-  "pages": [],
-  "themeConfig": {
-    "repo": "TaoXuSheng/mt-blog",
-    "nav": [],
-    "sidebar": {}
-  }
-}
-```
+::: tip vue
+│── docs  
+│   ├── .vuepress _(**可选的**)_  
+│   │   ├── `components` _(**可选的**)_  
+│   │   ├── `theme` _(**可选的**)_  
+│   │   │   └── Layout.vue  
+│   │   ├── `public` _(**可选的**)_  
+│   │   ├── `styles` _(**可选的**)_  
+│   │   │   ├── index.styl  
+│   │   │   └── palette.styl  
+│   │   ├── `templates` _(**可选的, 谨慎配置**)_  
+│   │   │   ├── dev.html  
+│   │   │   └── ssr.html  
+│   │   ├── `config.js` _(**可选的**)_  
+│   │   └── `enhanceApp.js` _(**可选的**)_  
+│   │   
+│   ├── README.md  
+│   ├── guide  
+│   │   └── README.md  
+│   └── config.md  
+│   
+└── package.json  
+:::
+
+
 
 上图是网站的 `$site` 值，其中 `base`，`title`，`description`，`themeConfig` 等属性是从 `.vuepress/config.js` 文件中 copy 过来的。而 `pages` 则是整个网站的页面元数据。
 
 `docs/README.md` 文件中的内容，其中包含了 YAML、Markdown、Vue 等语法。
 
-```text
+```markdown
 ---
 home: true
 title: 12345，上山打老虎
