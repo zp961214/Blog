@@ -22,7 +22,8 @@ export default {
     },
     data() {
         return {
-            reSet: null
+            reSet: null,
+            title: ''
         };
     },
     created() {
@@ -33,6 +34,7 @@ export default {
             document.hidden ? this.pageHidden() : this.pageShow();
         },
         pageHidden() {
+            clearTimeout(this.reSet);
             document.title = '(˘•ω•˘)喔噢，页面不见啦';
         },
         pageShow() {
@@ -46,8 +48,8 @@ export default {
     }
 };
 </script>
+<style src="prismjs/themes/prism-tomorrow.css"></style>
 <style lang="scss">
 @import './styles/base.scss';
 @import './styles/theme.scss';
 </style>
-<style src="./styles/styles/theme.styl" lang="stylus"></style>
