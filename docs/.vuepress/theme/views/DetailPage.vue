@@ -6,7 +6,7 @@
         </div>
         <nav>
             <ul>
-                <li v-for="(item, index) in headers" @click="scrollToView(item.title)" :key="item.title">{{ index + 1 + '.' + item.title }}</li>
+                <li v-for="(item, index) in headers" @click="scrollToView(item.slug)" :key="item.title">{{ index + 1 + '.' + item.title }}</li>
             </ul>
         </nav>
     </div>
