@@ -7,7 +7,7 @@
             <aside-info class="post-aside" :log-count="total" />
         </div>
         <div class="Pagetion">
-            <el-pagination :current-page="currNum" :page-size="pageSize" :total="total" layout="prev, pager, next" @current-change="currNum = arguments[0]" />
+            <el-pagination :current-page="currNum" :page-size="pageSize" :total="total" layout="prev, pager, next" @current-change="currentChange" />
         </div>
     </div>
 </template>
@@ -15,6 +15,7 @@
 <script>
 import postItem from '../components/post-item';
 import asideInfo from '../components/aside-info';
+import animate from '../../assets/js/animate.js';
 export default {
     name: 'Post',
     components: { postItem, asideInfo },
@@ -50,6 +51,15 @@ export default {
     methods: {
         handlerClick(link) {
             this.$router.push(link);
+        },
+        currentChange(e) {
+            this.currNum = e;
+            this.scrollToView();
+        },
+        scrollToView() {
+            const el = document.querySelector('.page-main');
+            const scrollTag = document.body.scrollTop ? document.body : document.documentElement;
+            animate(scrollTag, { scrollTop: el.offsetTop - 60 });
         }
     }
 };
