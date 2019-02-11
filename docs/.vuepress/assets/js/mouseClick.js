@@ -53,7 +53,8 @@ window.onload = function() {
                 $elem.innerText = '(ꐦ°᷄д°᷅)';
                 break;
             default:
-                $elem.innerText = String.fromCharCode(55357) + String.fromCharCode(Math.floor(Math.random() * 723) + 56320);
+                //String.fromCharCode(55357) + String.fromCharCode(Math.floor(Math.random() * 723) + 56320);
+                $elem.innerText = '💗';
                 break;
         }
         $elem.style.fontSize = Math.round(Math.random()) * 3 + 14 + 'px';

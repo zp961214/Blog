@@ -11,7 +11,6 @@ import Page from './views/page.vue';
 import NavMenu from './components/nav-menu.vue';
 import mobileMenu from './components/mobile-menu';
 import bannerSection from './components/banner-section';
-
 export default {
     name: 'Layout',
     components: {
@@ -26,8 +25,11 @@ export default {
             title: ''
         };
     },
-    created() {
+    mounted() {
+        this.title = document.title;
         window.addEventListener('visibilitychange', this.visibilitychange);
+       import('../assets/js/mouseClick.js')
+
     },
     methods: {
         visibilitychange() {
@@ -43,7 +45,7 @@ export default {
             this.reSet = setTimeout(this.reSetTitle, 2500);
         },
         reSetTitle() {
-            document.title = 'hi,valor';
+            document.title = this.title;
         }
     }
 };

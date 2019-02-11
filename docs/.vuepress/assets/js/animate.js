@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
   函数 colorAnimate (obj,attr,val,dur,fn,callback)
   obj   要处理的对象
