@@ -1,7 +1,5 @@
 ---
-title: README.md
+home: false
 ---
+123
 
-我是README.md文件~
-
-<!-- more -->

@@ -17,15 +17,13 @@ module.exports = {
             }
         }
     },
-    locales: {
-        '/': {
-            lang: 'zh-CN'
-        },
-        '/post/': {
-            lang: 'zh-CN'
-        }
-    },
-    configureWebpack: (config, isServer) => {
-        return {};
-    }
+    base: '/test/'
+    // locales: {
+    //     '/': {
+    //         lang: 'zh-CN'
+    //     },
+    //     '/post/': {
+    //         lang: 'zh-CN'
+    //     }
+    // }
 };
