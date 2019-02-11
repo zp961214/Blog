@@ -30,9 +30,7 @@ export default {
             return this.$page.path;
         }
     },
-    created() {
-        axios.get('timestamp');
-    }
+    created() {}
 };
 </script>
 <style lang="scss" scoped>
