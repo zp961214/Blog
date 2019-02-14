@@ -1,24 +1,20 @@
 <template>
     <div class="page-main">
-        <Home v-if="$route.path === '/'"></Home>
-        <Post v-else-if="isPost"></Post>
+        <Content v-if="isNav"></Content>
         <detail-page v-else></detail-page>
     </div>
 </template>
 <script>
-import Home from './Home.vue';
-import Post from './Post.vue';
 import DetailPage from './DetailPage';
-import axios from 'axios';
 export default {
     name: 'page',
-    components: { Home, Post, DetailPage },
+    components: { DetailPage },
     data() {
         return {};
     },
     computed: {
-        isPost() {
-            return this.$route.path === '/post/';
+        isArchives() {
+            return this.$route.path === '/archives/';
         },
         componentId() {
             return this.nav.filter(v => v.link === this.nowPath)[0].title;
@@ -26,11 +22,16 @@ export default {
         nav() {
             return this.$site.themeConfig.nav;
         },
+        isNav() {
+            return this.nav.some(v => v.link === this.nowPath);
+        },
         nowPath() {
             return this.$page.path;
         }
     },
-    created() {}
+    created() {
+        console.log(this.$router);
+    }
 };
 </script>
 <style lang="scss" scoped>
