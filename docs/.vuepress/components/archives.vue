@@ -1,13 +1,13 @@
 <template>
     <div class="component-home">
-        <aside-info></aside-info>
+        <aside-info />
     </div>
 </template>
 
 <script>
-import asideInfo from '../components/aside-info.vue';
+import asideInfo from '../theme/components/aside-info.vue';
 export default {
-    name: 'Home',
+    name: 'archives',
     components: { asideInfo }
 };
 </script>

@@ -6,7 +6,7 @@
         </div>
 
         <ul>
-            <li :class="{ active: active(item) }" v-for="item in nav" :key="item.text" @click="RouterTo(item)">{{ item.text }}</li>
+            <li :class="{ active: active(item) }" :key="item.text" @click="RouterTo(item)" v-for="item in nav">{{ item.text }}</li>
         </ul>
     </header>
 </template>
@@ -16,6 +16,7 @@ export default {
         nav() {
             return this.$site.themeConfig.nav;
         },
+
         pagePath() {
             return this.$page.path;
         }
@@ -24,6 +25,7 @@ export default {
         active(item) {
             return this.pagePath === item.link;
         },
+
         RouterTo(item) {
             this.$router.push({ path: item.link });
         }
@@ -43,6 +45,7 @@ export default {
     color: #000;
     padding: 10px 2%;
     box-sizing: border-box;
+    transition: all 1s;
     z-index: 6;
     .site-desc {
         position: absolute;

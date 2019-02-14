@@ -219,13 +219,13 @@ function animate(obj, attrObj, dur, fun, callback) {
     clearInterval(obj.t);
     if (arguments.length == 2) {
         dur = 500;
-        fun = Tween.Quad.easeInOut;
+        fun = Tween.Linear;
         callback = null;
     }
     if (arguments.length == 3) {
         if (typeof dur == 'number') {
             dur = dur;
-            fun = Tween.Quart.easeOut;
+            fun = Tween.Linear;
             callback = null;
         }
         if (typeof dur == 'function') {

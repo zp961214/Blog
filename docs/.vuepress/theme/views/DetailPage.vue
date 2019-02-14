@@ -5,7 +5,7 @@
             <Content></Content>
         </div>
         <nav>
-            <ul>
+            <ul :class="{ affix }">
                 <li v-for="(item, index) in headers" @click="scrollToView(item.slug)" :key="item.title">{{ index + 1 + '.' + item.title }}</li>
             </ul>
         </nav>
@@ -17,7 +17,9 @@ import animate from '../../assets/js/animate.js';
 export default {
     name: 'DetailPage',
     data() {
-        return {};
+        return {
+            affix: false
+        };
     },
     computed: {
         headers() {
@@ -25,11 +27,23 @@ export default {
         }
     },
     methods: {
-        scrollToView(id) {
-            const el = document.querySelector('#' + id);
+        scrollToView(id, Selector = '#') {
+            const el = document.querySelector(Selector + id);
             const scrollTag = document.body.scrollTop ? document.body : document.documentElement;
-            animate(scrollTag, { scrollTop: el.offsetTop - 60 });
+            animate(scrollTag, { scrollTop: el.offsetTop - 72 });
+        },
+        scrollHandle() {
+            const scrollTag = document.body.scrollTop ? document.body : document.documentElement;
+            const { scrollTop } = scrollTag;
+            this.affix = scrollTop > 547;
         }
+    },
+    mounted() {
+        window.addEventListener('scroll', this.scrollHandle);
+        this.scrollToView('title', '.');
+    },
+    beforeDestory() {
+        window.removeEventListener('scroll', this.scrollHandle);
     }
 };
 </script>
@@ -51,27 +65,34 @@ export default {
         }
     }
     nav {
-        margin-left: 25px;
-        background: #fff;
-        border-radius: 5px;
-        padding: 20px;
-        box-sizing: border-box;
-        width: 100%;
-        color: #555;
-        font-size: 14px;
-        background: #fff;
-        box-shadow: initial;
-        border-radius: initial;
-        border-radius: 5px;
-        height: max-content;
-        z-index: 2;
+        margin: 0 0 0 25px;
         flex: 0 0 300px;
         ul {
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            margin: 0;
+            box-sizing: border-box;
+            width: 100%;
+            color: #555;
+            font-size: 14px;
+            background: #fff;
+            box-shadow: initial;
+            border-radius: initial;
+            border-radius: 5px;
+            height: max-content;
+            z-index: 2;
+
             li {
                 cursor: pointer;
                 margin-bottom: 5px;
             }
         }
+    }
+    .affix {
+        position: fixed;
+        width: 300px;
+        top: 120px;
     }
 }
 </style>

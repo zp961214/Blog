@@ -14,7 +14,7 @@ window.onload = function() {
         var x = e.pageX;
         var y = e.pageY;
         $elem.style.left = x - 10 + 'px';
-        $elem.style.top = y - 20 + 'px';
+        $elem.style.top = y - 30 + 'px';
         clearInterval(anim);
         switch (++click_cnt) {
             case 10:
@@ -66,7 +66,7 @@ window.onload = function() {
                     clearInterval(anim);
                     $body.removeChild($elem);
                 }
-                $elem.style.top = y - 20 - increase + 'px';
+                $elem.style.top = y - 30 - increase + 'px';
                 $elem.style.opacity = (150 - increase) / 120;
             }, 8);
         }, 70);

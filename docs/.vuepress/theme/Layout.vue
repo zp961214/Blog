@@ -1,9 +1,9 @@
 <template>
     <div class="theme-container">
-        <nav-menu />
-        <mobileMenu />
-        <banner-section />
-        <page />
+        <nav-menu :class="{MenuHidden}"/>
+        <mobileMenu/>
+        <banner-section/>
+        <page/>
     </div>
 </template>
 <script>
@@ -22,14 +22,21 @@ export default {
     data() {
         return {
             reSet: null,
-            title: ''
+            title: '',
+            MenuHidden: false,
+            scrollTop: 0
         };
     },
     mounted() {
         this.title = document.title;
+        this.scrollTopInit();
         window.addEventListener('visibilitychange', this.visibilitychange);
-       import('../assets/js/mouseClick.js')
-
+        window.addEventListener('scroll', this.scrollHandle);
+        import('../assets/js/mouseClick.js');
+    },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.scrollHandle);
+        window.removeEventListener('visibilitychange', this.visibilitychange); 
     },
     methods: {
         visibilitychange() {
@@ -46,6 +53,16 @@ export default {
         },
         reSetTitle() {
             document.title = this.title;
+        },
+        scrollHandle() {
+            const scrollTag = document.body.scrollTop ? document.body : document.documentElement;
+            const { scrollTop } = scrollTag;
+            this.MenuHidden = scrollTop > this.scrollTop;
+            this.scrollTop = scrollTop;
+        },
+        scrollTopInit() {
+            const scrollTag = document.body.scrollTop ? document.body : document.documentElement;
+            this.scrollTop = scrollTag.scrollTop;
         }
     }
 };
@@ -55,3 +72,12 @@ export default {
 @import './styles/base.scss';
 @import './styles/theme.scss';
 </style>
+<style lang="scss" scoped>
+.theme-container {
+    .MenuHidden {
+        top:-60px;
+        
+    }
+}
+</style>
+
