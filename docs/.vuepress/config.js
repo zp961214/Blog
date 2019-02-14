@@ -4,9 +4,9 @@ module.exports = {
     head: [['link', { rel: 'icon', href: '/logo.png' }]],
     themeConfig: {
         repo: 'zp961214/Blog',
-        nav: [{ text: '首页', link: '/', title: 'Home' }, { text: '中文博客', link: '/post/', title: 'Post' }],
+        nav: [{ text: '首页', link: '/', title: 'Home' }, { text: '归档', link: '/archives/', title: 'Archives' }],
         sidebar: {
-            '/post/': ['/web/', '/web/first']
+            '/archives/': ['/web/', '/web/first']
         },
         sidebarDepth: 2,
         lastUpdated: 'Last Updated',
