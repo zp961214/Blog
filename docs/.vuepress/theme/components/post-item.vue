@@ -4,7 +4,7 @@
             <p class="month">{{ content.lastUpdated | format('MM') }}月</p>
             <p class="day">{{ content.lastUpdated | format('DD') }}</p>
         </div>
-        <div class="post-badge">13</div>
+        <div class="post-badge">{{ content.classify | initialUpperCase }}</div>
         <div class="post-content">
             <div class="title" @click="handlerClick(content.path)">
                 <span>{{ content.title }}</span>
@@ -46,6 +46,10 @@ export default {
     filters: {
         format(value, type) {
             return format(value, type);
+        },
+
+        initialUpperCase(value) {
+            return value.slice(0, 1).toLocaleUpperCase() + value.slice(1);
         }
     },
     data() {
@@ -103,11 +107,13 @@ export default {
         background-color: #97dffd;
         margin: 5px 0 15px 2px;
         font-size: 14px;
+        letter-spacing: 1px;
         color: #fff;
         border-radius: 0 4px 4px 0;
         display: inline-block;
         padding: 7px 11px 7px 32px;
         line-height: 1;
+        font-weight: 600;
     }
     .post-content {
         .title {
