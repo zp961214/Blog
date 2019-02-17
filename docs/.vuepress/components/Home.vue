@@ -30,12 +30,10 @@ export default {
     },
 
     computed: {
-        path() {
-            return this.$page.path;
-        },
         items() {
-            const is_post = new RegExp('^' + this.path + '.*(.html)$');
-            return this.$site.pages.filter(v => is_post.test(v.path)).sort((a, b) => b.lastUpdated - a.lastUpdated);
+            const is_post = new RegExp(`^/post/(.*)/.*.html$`);
+            const post = this.$site.pages.filter(v => is_post.test(v.path)).sort((a, b) => b.lastUpdated - a.lastUpdated);
+            return post.map(v => ((v.classify = v.path.replace(is_post, '$1')), v));
         },
 
         total() {
