@@ -6,7 +6,9 @@
         </div>
         <nav>
             <ul :class="{ affix }">
-                <li v-for="(item, index) in headers" @click="scrollToView(item.slug)" :key="item.title">{{ index + 1 + '.' + item.title }}</li>
+                <li v-for="(item, index) in headers" :class="{ activeCurrent: activeCurrent === index }" @click="scrollToView(item.slug)" :key="item.title">
+                    {{ index + 1 + '.' + item.title }}
+                </li>
             </ul>
         </nav>
     </div>
@@ -18,31 +20,52 @@ export default {
     name: 'DetailPage',
     data() {
         return {
-            affix: false
+            affix: false,
+            activeCurrent: -1
         };
     },
     computed: {
         headers() {
             return this.$page.headers;
+        },
+
+        headers_ele() {
+            return this.headers.map(v => this.getScrollTag(v.slug).el.offsetTop - 60);
         }
     },
     methods: {
-        scrollToView(id, Selector = '#') {
+        getScrollTag(id, Selector = '#') {
             const el = document.querySelector(Selector + id);
-            const scrollTag = document.body.scrollTop ? document.body : document.documentElement;
-            animate(scrollTag, { scrollTop: el.offsetTop - 72 });
+            const docScrollTag = document.body.scrollTop ? document.body : document.documentElement;
+            return { el, docScrollTag };
         },
+
+        scrollToView(id, Selector, offset = 0) {
+            const { el, docScrollTag } = this.getScrollTag(id, Selector);
+            animate(docScrollTag, { scrollTop: el.offsetTop - offset });
+        },
+
         scrollHandle() {
-            const scrollTag = document.body.scrollTop ? document.body : document.documentElement;
-            const { scrollTop } = scrollTag;
+            const { docScrollTag } = this.getScrollTag();
+            const { scrollTop } = docScrollTag;
+            this.asideHandle(scrollTop);
             this.affix = scrollTop > 547;
+        },
+
+        asideHandle(scrollTop) {
+            const [first] = this.headers_ele;
+            if (scrollTop > first) {
+                const list = this.headers_ele.filter(v => scrollTop > v);
+                this.activeCurrent = list.length - 1;
+            } else this.activeCurrent = -1;
         }
     },
     mounted() {
         window.addEventListener('scroll', this.scrollHandle);
-        this.scrollToView('title', '.');
+        this.scrollToView('page-main', '.', 70);
     },
-    beforeDestory() {
+
+    beforeDestroy() {
         window.removeEventListener('scroll', this.scrollHandle);
     }
 };
@@ -86,6 +109,9 @@ export default {
             li {
                 cursor: pointer;
                 margin-bottom: 5px;
+            }
+            .activeCurrent {
+                color: #fc6423;
             }
         }
     }
