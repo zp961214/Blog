@@ -49,11 +49,11 @@ export default {
 }
 .banner-section {
     position: relative;
-    height: 600px;
+    height: 400px;
     background: url('../images/bg.jpg') center center no-repeat;
     background-size: cover;
     .site-banner-author {
-        width: 750px;
+        width: 550px;
         height: 240px;
         position: absolute;
         display: flex;
@@ -62,8 +62,8 @@ export default {
         align-items: center;
         left: 50%;
         bottom: 50px;
-        background: rgba(230, 244, 249, 0.8);
-        margin-left: -375px;
+        background: rgba(255, 255, 255, 0.88);
+        margin-left: -275px;
         box-sizing: border-box;
         padding: 10px 20px;
         .avatar {
