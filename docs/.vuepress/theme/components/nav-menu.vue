@@ -6,7 +6,7 @@
         </div>
 
         <ul>
-            <li :class="{ active: active(item) }" :key="item.text" @click="RouterTo(item)" v-for="item in nav">{{ item.text }}</li>
+            <li :key="item.text" @click="RouterTo(item)" v-for="item in nav">{{ item.text }}</li>
         </ul>
     </header>
 </template>
@@ -35,58 +35,62 @@ export default {
 </script>
 <style lang="scss" scoped>
 .nav-menu {
-    background: rgba(251, 253, 251, 0.9);
+    // background: rgba(251, 253, 251, 0.9);
+    background: rgba(255, 255, 255, 0.4);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
-    box-shadow: 0 2px 8px rgba(191, 194, 191, 0.623);
-    color: #000;
-    padding: 10px 2%;
+    height: 40px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: #222;
     box-sizing: border-box;
+    line-height: 40px;
     transition: all 1s;
     z-index: 6;
     .site-desc {
+        display: flex;
         position: absolute;
-        top: 50%;
+        top: 0;
         left: 40px;
-        margin-top: -15px;
+        margin-top: 0;
         .logo {
             float: left;
-            width: 30px;
-            height: 30px;
+            align-self: center;
+            width: 23px;
+            height: 23px;
             background: url('../../public/logo.png') center center no-repeat;
-            background-size: 30px;
+            background-size: 23px;
             margin-right: 16px;
+            margin-bottom: 3px;
         }
         .author-name {
             font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
             color: #2c3e50;
-            line-height: 30px;
             font-size: 18px;
         }
     }
     ul {
+        float: right;
         display: flex;
+        height: 100%;
         justify-content: flex-end;
         margin: 0;
-        padding: 10px 0;
+        margin-right: 15px;
         box-sizing: border-box;
         li {
-            margin-right: 1.5rem;
+            padding: 0 7px;
             font-size: 14px;
-            line-height: 14px;
-            padding-bottom: 3px;
+            line-height: 40px;
             &:hover {
-                border-bottom: 2px solid #46bd87;
-                margin-bottom: -2px;
+                cursor: pointer;
+                background: rgba(255, 255, 255, 0.3);
             }
         }
-        .active {
-            border-bottom: 2px solid #46bd87;
-            margin-bottom: -2px;
-        }
+        // .active {
+        //     border-bottom: 2px solid #46bd87;
+        //     margin-bottom: -2px;
+        // }
     }
 }
 </style>
