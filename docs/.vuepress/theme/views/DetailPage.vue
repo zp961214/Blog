@@ -46,10 +46,10 @@ export default {
         },
 
         scrollHandle() {
-            const { docScrollTag } = this.getScrollTag();
+            const { el, docScrollTag } = this.getScrollTag('nav', '');
             const { scrollTop } = docScrollTag;
             this.asideHandle(scrollTop);
-            this.affix = scrollTop > 547;
+            this.affix = scrollTop > el.offsetTop - 20;
         },
 
         asideHandle(scrollTop) {
@@ -118,7 +118,7 @@ export default {
     .affix {
         position: fixed;
         width: 300px;
-        top: 120px;
+        top: 20px;
     }
 }
 </style>
