@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import asideInfo from '../theme/components/aside-info.vue';
+import asideInfo from '@theme/components/aside-info.vue';
 export default {
     name: 'archives',
     components: { asideInfo }

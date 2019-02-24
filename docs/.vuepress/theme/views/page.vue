@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import DetailPage from './DetailPage';
+import DetailPage from '@theme/views/DetailPage';
 export default {
     name: 'page',
     components: { DetailPage },

@@ -5,7 +5,7 @@
                 <post-item :content="content" :key="content.key" class="post-item" v-for="content in currentItems" />
             </div>
             <div class="site-info">
-                <aside-info :class="['post-aside', { affix }]" :log-count="total" />
+                <aside-info :class="['post-aside', { affix }]" />
             </div>
         </div>
         <div class="Pagetion">
@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import postItem from '../theme/components/post-item';
-import asideInfo from '../theme/components/aside-info';
-import animate from '../assets/js/animate.js';
+import postItem from '@theme/components/post-item';
+import asideInfo from '@theme/components/aside-info';
+import animate from '@assets/js/animate.js';
 export default {
     name: 'Home',
     components: { postItem, asideInfo },
@@ -47,32 +47,40 @@ export default {
         }
     },
 
-    mounted() {
-        this.scrollToView('post', '.');
-        window.addEventListener('scroll', this.scrollHandle);
-    },
-    beforeDestory() {
-        window.removeEventListener('scroll', this.scrollHandle);
-    },
-
     methods: {
         handlerClick(link) {
             this.$router.push(link);
         },
+
         currentChange(e) {
             this.scrollToView('page-main', '.');
             setTimeout(() => (this.currNum = e), 500);
         },
-        scrollToView(id, Selector = '#') {
+
+        getScrollTag(id, Selector = '#') {
             const el = document.querySelector(Selector + id);
-            const scrollTag = document.body.scrollTop ? document.body : document.documentElement;
-            animate(scrollTag, { scrollTop: el.offsetTop - 100 });
+            const docScrollTag = document.body.scrollTop ? document.body : document.documentElement;
+            return { el, docScrollTag };
         },
+
+        scrollToView(id, Selector, offset = 0) {
+            const { el, docScrollTag } = this.getScrollTag(id, Selector);
+            animate(docScrollTag, { scrollTop: el.offsetTop - offset });
+        },
+
         scrollHandle() {
-            const scrollTag = document.body.scrollTop ? document.body : document.documentElement;
-            const { scrollTop } = scrollTag;
-            this.affix = scrollTop > 595;
+            const { el, docScrollTag } = this.getScrollTag('post', '.');
+            const { scrollTop } = docScrollTag;
+            this.affix = scrollTop > el.offsetTop - 20;
         }
+    },
+
+    mounted() {
+        this.scrollToView('post', '.');
+        window.addEventListener('scroll', this.scrollHandle);
+    },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.scrollHandle);
     }
 };
 </script>
@@ -102,7 +110,7 @@ export default {
         }
         .affix {
             position: fixed;
-            top: 64px;
+            top: 20px;
             right: unset;
             left: unset;
         }

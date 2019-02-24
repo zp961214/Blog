@@ -1,7 +1,7 @@
 <template>
     <div class="banner-section">
         <div class="site-banner-author">
-            <img alt="avatar" class="avatar tada" src="../images/headpic.png" />
+            <img alt="avatar" class="avatar tada" src="~@theme/images/headpic.jpg" />
             <div class="site-banner-desc">
                 <span>今天也是元气满满的一天。</span>
                 <span></span>
