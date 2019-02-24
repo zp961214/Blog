@@ -1,7 +1,7 @@
 <template>
     <aside class="site-bar">
         <div class="site-author">
-            <img alt="author-Avatar" src="../images/avatar.jpg" />
+            <img alt="author-Avatar" src="~@theme/images/avatar.jpg" />
             <p class="description">让我试试</p>
             <ul class="link-of-author-motion">
                 <li :key="i" @click="openPage(item.href)" v-for="(item, i) in hrefList">
@@ -14,8 +14,8 @@
                     <span class="site-total">{{ logCount }}</span>
                     <span class="site-item-desc">日志</span>
                 </div>
-                <div class="site-item">
-                    <span class="site-total">4</span>
+                <div class="site-item" @click="goCategories">
+                    <span class="site-total">{{ classifyCount }}</span>
                     <span class="site-item-descl">分类</span>
                 </div>
             </section>
@@ -26,11 +26,7 @@
 <script>
 export default {
     name: 'sidebar',
-    props: {
-        logCount: {
-            type: [Number, String]
-        }
-    },
+    props: {},
     data() {
         return {
             hrefList: [
@@ -67,6 +63,25 @@ export default {
             return this.$page.frontmatter;
         },
 
+        items() {
+            const is_post = new RegExp(`^/post/(.*)/.*.html$`);
+            const post = this.$site.pages.filter(v => is_post.test(v.path)).sort((a, b) => b.lastUpdated - a.lastUpdated);
+            return post.map(v => ((v.classify = v.path.replace(is_post, '$1')), v));
+        },
+
+        logCount() {
+            return this.items.length || 0;
+        },
+
+        classifyCount() {
+            const c_obj = this.items.reduce((prev, current) => {
+                const { classify } = current;
+                if (!prev[classify]) prev[classify] = true;
+                return prev;
+            }, {});
+            return Object.keys(c_obj).length;
+        },
+
         nav() {
             return this.front.nav || [];
         }
@@ -79,6 +94,11 @@ export default {
                 this.$router.push(link);
             }
         },
+
+        goCategories() {
+            this.$router.push({ path: '/categories/' });
+        },
+
         openPage(href) {
             window.open(href);
         }

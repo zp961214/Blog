@@ -14,7 +14,7 @@
 export default {
     computed: {
         nav() {
-            return this.$site.themeConfig.nav;
+            return this.$site.themeConfig.nav.filter(v => v.hide === undefined);
         },
 
         pagePath() {

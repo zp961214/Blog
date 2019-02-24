@@ -1,6 +1,6 @@
 <template>
     <div id="DetailPage">
-        <div class="container">
+        <div class="DetailPage-container">
             <h1 class="title">{{ this.$page.title }}</h1>
             <Content></Content>
         </div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import animate from '../../assets/js/animate.js';
+import animate from '@assets/js/animate.js';
 export default {
     name: 'DetailPage',
     data() {
@@ -30,7 +30,7 @@ export default {
         },
 
         headers_ele() {
-            return this.headers.map(v => this.getScrollTag(v.slug).el.offsetTop - 60);
+            return this.headers ? this.headers.map(v => this.getScrollTag(v.slug).el.offsetTop - 60) : null;
         }
     },
     methods: {
@@ -48,8 +48,9 @@ export default {
         scrollHandle() {
             const { el, docScrollTag } = this.getScrollTag('nav', '');
             const { scrollTop } = docScrollTag;
-            this.asideHandle(scrollTop);
             this.affix = scrollTop > el.offsetTop - 20;
+            if (this.headers_ele) this.asideHandle(scrollTop);
+            else return;
         },
 
         asideHandle(scrollTop) {
@@ -75,7 +76,7 @@ export default {
     display: flex;
     width: 1100px;
     margin: 0 auto;
-    .container {
+    .DetailPage-container {
         padding: 40px;
         box-sizing: border-box;
         border-radius: 5px;
