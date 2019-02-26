@@ -24,9 +24,11 @@
 </template>
 
 <script>
+import classify from '@theme/mixins/classify';
 export default {
     name: 'sidebar',
     props: {},
+    mixins: [classify],
     data() {
         return {
             hrefList: [
@@ -61,25 +63,6 @@ export default {
     computed: {
         front() {
             return this.$page.frontmatter;
-        },
-
-        items() {
-            const is_post = new RegExp(`^/post/(.*)/.*.html$`);
-            const post = this.$site.pages.filter(v => is_post.test(v.path)).sort((a, b) => b.lastUpdated - a.lastUpdated);
-            return post.map(v => ((v.classify = v.path.replace(is_post, '$1')), v));
-        },
-
-        logCount() {
-            return this.items.length || 0;
-        },
-
-        classifyCount() {
-            const c_obj = this.items.reduce((prev, current) => {
-                const { classify } = current;
-                if (!prev[classify]) prev[classify] = true;
-                return prev;
-            }, {});
-            return Object.keys(c_obj).length;
         },
 
         nav() {
