@@ -6,8 +6,11 @@
                 <div class="categories-count">
                     目前共计 5 个分类
                 </div>
-                <ul>
-                    <li></li>
+                <ul v-for="(value, key) in classifyObj" :key="key">
+                    <li>
+                        <span>{{ key | initialUpperCase }}</span>
+                        <span>({{ value }})</span>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -19,10 +22,21 @@
 
 <script>
 import asideInfo from '@theme/components/aside-info';
+import classify from '@theme/mixins/classify';
+
 export default {
     name: 'categories',
+
+    mixins: [classify],
+
     components: {
         asideInfo
+    },
+
+    filters: {
+        initialUpperCase(value) {
+            return value.slice(0, 1).toLocaleUpperCase() + value.slice(1);
+        }
     },
     data() {
         return {};
@@ -33,13 +47,15 @@ export default {
 <style lang="scss" scoped>
 .categories {
     position: relative;
-    width: 1100px;
+    margin: 0 auto;
     display: flex;
+    padding: 0 35px;
     justify-content: space-between;
     .container-categories {
         background: #fff;
         flex: 1;
         padding: 40px;
+        max-width: 800px;
         box-sizing: border-box;
         border-radius: 5px;
         background: #fff;
@@ -55,6 +71,23 @@ export default {
         .body {
             .categories-count {
                 text-align: center;
+            }
+            ul {
+                li {
+                    list-style: circle;
+                    span {
+                        &:first-child {
+                            color: #ab3300;
+                            &:hover {
+                                color: #222;
+                                cursor: pointer;
+                            }
+                        }
+                        &:last-child {
+                            color: #bbb;
+                        }
+                    }
+                }
             }
         }
     }
