@@ -61,6 +61,7 @@ export default {
             } else this.activeCurrent = -1;
         }
     },
+
     mounted() {
         window.addEventListener('scroll', this.scrollHandle);
         this.scrollToView('page-main', '.', 70);

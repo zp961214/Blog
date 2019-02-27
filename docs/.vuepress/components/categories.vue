@@ -49,8 +49,9 @@ export default {
     position: relative;
     margin: 0 auto;
     display: flex;
+    justify-content: center;
     padding: 0 35px;
-    justify-content: space-between;
+
     .container-categories {
         background: #fff;
         flex: 1;
