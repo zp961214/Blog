@@ -4,6 +4,13 @@ module.exports = {
     title: 'Hi,valor',
     description: 'Just playing around',
     head: [['link', { rel: 'icon', href: '/logo.png' }]],
+    locales: {
+        '/': {
+            lang: 'zh-CN',
+            title: 'hi,valor',
+            description: 'Web Front-End Blog by valor'
+        }
+    },
     themeConfig: {
         repo: 'zp961214/Blog',
         nav: [
