@@ -7,10 +7,10 @@
     </div>
 </template>
 <script>
-import Page from './views/page.vue';
-import NavMenu from './components/nav-menu.vue';
-import mobileMenu from './components/mobile-menu';
-import bannerSection from './components/banner-section';
+import Page from '@theme/views/page.vue';
+import NavMenu from '@theme/components/nav-menu.vue';
+import mobileMenu from '@theme/components/mobile-menu';
+import bannerSection from '@theme/components/banner-section';
 export default {
     name: 'Layout',
     components: {

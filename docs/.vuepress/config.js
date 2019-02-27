@@ -1,10 +1,16 @@
+const path = require('path');
+const resolve = (...arg) => path.resolve(...arg);
 module.exports = {
     title: 'Hi,valor',
     description: 'Just playing around',
     head: [['link', { rel: 'icon', href: '/logo.png' }]],
     themeConfig: {
         repo: 'zp961214/Blog',
-        nav: [{ text: '首页', link: '/', title: 'Home' }, { text: '归档', link: '/archives/', title: 'Archives' }],
+        nav: [
+            { text: '首页', link: '/', title: 'Home' },
+            { text: '归档', link: '/archives/', title: 'Archives' },
+            { text: '分类', link: '/categories/', title: 'categories', hide: true }
+        ],
         sidebar: {
             '/archives/': ['/web/', '/web/first']
         },
@@ -17,13 +23,14 @@ module.exports = {
             }
         }
     },
-    base: '/test/'
-    // locales: {
-    //     '/': {
-    //         lang: 'zh-CN'
-    //     },
-    //     '/post/': {
-    //         lang: 'zh-CN'
-    //     }
-    // }
+    base: '/test/',
+    configureWebpack: {
+        resolve: {
+            alias: {
+                '@theme': resolve(__dirname, 'theme'),
+                '@': resolve(__dirname, 'theme'),
+                '@assets': resolve(__dirname, 'assets')
+            }
+        }
+    }
 };

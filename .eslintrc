@@ -1,6 +1,6 @@
 {
     "extends": ["prettier", "eslint:recommended", "plugin:vue/essential"],
-    "plugins": ["prettier"],
+    "plugins": ["prettier"], 
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
@@ -8,6 +8,10 @@
     "globals": {
         "module": true,
         "process":true
+    },
+    "env": {
+        "node": true,
+        "browser": true
     },
     "rules": {
         "no-console": "off",
