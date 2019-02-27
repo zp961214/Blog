@@ -4,20 +4,23 @@
         <mobileMenu/>
         <banner-section/>
         <page/>
-    </div>
+        <v-footer></v-footer>
+    </div> 
 </template>
 <script>
 import Page from '@theme/views/page.vue';
 import NavMenu from '@theme/components/nav-menu.vue';
 import mobileMenu from '@theme/components/mobile-menu';
 import bannerSection from '@theme/components/banner-section';
+import vFooter from '@theme/components/v-footer';
 export default {
     name: 'Layout',
     components: {
         Page,
         NavMenu,
         mobileMenu,
-        bannerSection
+        bannerSection,
+        vFooter
     },
     data() {
         return {
