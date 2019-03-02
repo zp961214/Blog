@@ -1,19 +1,10 @@
 <template>
     <div class="categories">
         <div class="container-categories">
-            <h3 class="title">分类</h3>
-            <div class="body">
-                <div class="categories-count">
-                    目前共计 5 个分类
-                </div>
-                <ul v-for="(value, key) in classifyObj" :key="key">
-                    <li>
-                        <span>{{ key | initialUpperCase }}</span>
-                        <span>({{ value }})</span>
-                    </li>
-                </ul>
-            </div>
+            <categories-desc v-if="isDesc" />
+            <categories-base v-else />
         </div>
+
         <nav>
             <aside-info class="site-bar" />
         </nav>
@@ -22,26 +13,52 @@
 
 <script>
 import asideInfo from '@theme/components/aside-info';
+import categoriesBase from '@theme/components/categories/categories-base';
+import categoriesDesc from '@theme/components/categories/categories-desc';
 import classify from '@theme/mixins/classify';
+import animate from '@assets/js/animate.js';
 
 export default {
     name: 'categories',
-
     mixins: [classify],
-
     components: {
-        asideInfo
+        asideInfo,
+        categoriesBase,
+        categoriesDesc
     },
 
-    filters: {
-        initialUpperCase(value) {
-            return value.slice(0, 1).toLocaleUpperCase() + value.slice(1);
-        }
-    },
+    filters: {},
     data() {
         return {};
     },
-    methods: {}
+    computed: {
+        isDesc() {
+            const { type } = this.$route.query;
+            const classify_keys = Object.keys(this.classifyObj);
+            return classify_keys.some(v => v === type);
+        }
+    },
+    mounted() {
+        this.scrollToView('categories', '.');
+    },
+    methods: {
+        getScrollTag(id, Selector = '#') {
+            const el = document.querySelector(Selector + id);
+            const docScrollTag = document.body.scrollTop ? document.body : document.documentElement;
+            return { el, docScrollTag };
+        },
+
+        scrollToView(id, Selector, offset = 0) {
+            const { el, docScrollTag } = this.getScrollTag(id, Selector);
+            console.log(el.offsetTop);
+            animate(docScrollTag, { scrollTop: el.offsetTop - offset });
+        }
+    },
+    watch: {
+        isDesc() {
+            this.scrollToView('categories', '.');
+        }
+    }
 };
 </script>
 <style lang="scss" scoped>
@@ -51,7 +68,6 @@ export default {
     display: flex;
     justify-content: center;
     padding: 0 35px;
-
     .container-categories {
         background: #fff;
         flex: 1;
@@ -61,36 +77,6 @@ export default {
         border-radius: 5px;
         background: #fff;
         color: #555;
-        .title {
-            color: #444;
-            font-size: 25px;
-            font-weight: 700;
-            text-align: center;
-            word-break: break-word;
-            margin-bottom: 15px;
-        }
-        .body {
-            .categories-count {
-                text-align: center;
-            }
-            ul {
-                li {
-                    list-style: circle;
-                    span {
-                        &:first-child {
-                            color: #ab3300;
-                            &:hover {
-                                color: #222;
-                                cursor: pointer;
-                            }
-                        }
-                        &:last-child {
-                            color: #bbb;
-                        }
-                    }
-                }
-            }
-        }
     }
     nav {
         margin: 0 0 0 25px;
