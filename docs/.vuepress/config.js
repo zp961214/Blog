@@ -30,7 +30,7 @@ module.exports = {
             }
         }
     },
-    base: '/test/',
+    base: '/',
     configureWebpack: {
         resolve: {
             alias: {
