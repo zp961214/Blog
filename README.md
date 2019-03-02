@@ -1,7 +1,7 @@
 # Blog
 一个用VuePress开发的Blog
 
-![website](https://github.com/zp961214/Blog/website.png)
+![website](https://github.com/zp961214/Blog/blob/master/website.png)
 
 ### TODO
 
