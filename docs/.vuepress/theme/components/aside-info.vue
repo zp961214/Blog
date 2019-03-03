@@ -10,7 +10,7 @@
                 </li>
             </ul>
             <section class="site-state">
-                <div class="site-item">
+                <div class="site-item" @click="goArchives">
                     <span class="site-total">{{ logCount }}</span>
                     <span class="site-item-desc">日志</span>
                 </div>
@@ -80,6 +80,10 @@ export default {
 
         goCategories() {
             this.$router.push({ path: '/categories/' });
+        },
+
+        goArchives() {
+            this.$router.push({ path: '/archives/' });
         },
 
         openPage(href) {
