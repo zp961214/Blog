@@ -4,24 +4,37 @@
             <h1 class="title">{{ this.$page.title }}</h1>
             <Content></Content>
         </div>
-        <nav>
-            <ul :class="{ affix }">
-                <li v-for="(item, index) in headers" :class="{ activeCurrent: activeCurrent === index }" @click="scrollToView(item.slug)" :key="item.title">
-                    {{ index + 1 + '.' + item.title }}
+        <section>
+            <div class="section-title" v-show="headers">
+                <span
+                    :class="{ sectionActive: sectionActive === item }"
+                    :key="item"
+                    @click="changeSection(item)"
+                    v-for="item in ['文章目录', '文章站点']"
+                    v-text="item"
+                />
+            </div>
+            <ul :class="{ affix }" ref="a" v-if="headers">
+                <li :class="{ activeCurrent: activeCurrent === index }" :key="item.title" @click="scrollToView(item.slug)" v-for="(item, index) in headers">
+                    {{ index + 1 + '. ' + item.title }}
                 </li>
             </ul>
-        </nav>
+            <div class="aside-container" ref="b" :class="{ asideShow: !headers }"><aside-info class="side-bar"></aside-info></div>
+        </section>
     </div>
 </template>
 
 <script>
 import animate from '@assets/js/animate.js';
+import asideInfo from '@theme/components/aside-info';
 export default {
     name: 'DetailPage',
+    components: { asideInfo },
     data() {
         return {
             affix: false,
-            activeCurrent: -1
+            activeCurrent: -1,
+            sectionActive: '文章目录'
         };
     },
     computed: {
@@ -31,9 +44,35 @@ export default {
 
         headers_ele() {
             return this.headers ? this.headers.map(v => this.getScrollTag(v.slug).el.offsetTop - 60) : null;
+        },
+        is_menu_show() {
+            return this.headers && this.sectionActive === '文章目录';
+        },
+
+        is_asideInfo_show() {
+            return !this.headers || this.sectionActive === '文章站点';
         }
     },
     methods: {
+        changeSection(item) {
+            this.sectionActive = item;
+            const { a, b } = this.$refs;
+            const time = 200;
+            const type = [{ opacity: 0.5 }, time];
+            if (this.is_menu_show) {
+                animate(a, ...type, () => this.cb(a, 'block', time));
+                animate(b, ...type, () => this.cb(b, 'none', time));
+            } else {
+                animate(a, ...type, () => this.cb(a, 'none', time));
+                animate(b, ...type, () => this.cb(b, 'block', time));
+            }
+        },
+
+        cb(el, type, time) {
+            if (type === 'block') (el.style.display = 'block'), animate(el, { opacity: 1 }, time);
+            if (type === 'none') (el.style.display = 'none'), animate(el, { opacity: 0 }, time);
+        },
+
         getScrollTag(id, Selector = '#') {
             const el = document.querySelector(Selector + id);
             const docScrollTag = document.body.scrollTop ? document.body : document.documentElement;
@@ -46,7 +85,7 @@ export default {
         },
 
         scrollHandle() {
-            const { el, docScrollTag } = this.getScrollTag('nav', '');
+            const { el, docScrollTag } = this.getScrollTag('section', '');
             const { scrollTop } = docScrollTag;
             this.affix = scrollTop > el.offsetTop - 20;
             if (this.headers_ele) this.asideHandle(scrollTop);
@@ -89,25 +128,43 @@ export default {
             margin-bottom: 18px;
         }
     }
-    nav {
+    section {
+        position: relative;
         margin: 0 0 0 25px;
         flex: 0 0 300px;
+        background: #fff;
+        border-radius: 5px;
+        height: max-content;
+        .section-title {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            span {
+                margin: 0 5px;
+                padding-bottom: 4px;
+                box-sizing: border-box;
+                &:hover {
+                    cursor: pointer;
+                    color: #fc6423;
+                }
+            }
+            .sectionActive {
+                opacity: 1;
+                color: #fc6423;
+                border-bottom: 1px solid #fc6423;
+            }
+        }
         ul {
             padding: 20px;
-            background: #fff;
-            border-radius: 5px;
             margin: 0;
             box-sizing: border-box;
             width: 100%;
             color: #555;
             font-size: 14px;
-            background: #fff;
             box-shadow: initial;
             border-radius: initial;
             border-radius: 5px;
-            height: max-content;
             z-index: 2;
-
             li {
                 cursor: pointer;
                 margin-bottom: 5px;
@@ -115,6 +172,19 @@ export default {
             .activeCurrent {
                 color: #fc6423;
             }
+        }
+        .aside-container {
+            display: none;
+            .side-bar {
+                position: unset;
+                top: 20px;
+                right: unset;
+                left: unset;
+                transform: translate(0, 0);
+            }
+        }
+        .asideShow {
+            display: block;
         }
     }
     .affix {
