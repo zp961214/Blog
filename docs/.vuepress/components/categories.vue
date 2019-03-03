@@ -50,7 +50,6 @@ export default {
 
         scrollToView(id, Selector, offset = 0) {
             const { el, docScrollTag } = this.getScrollTag(id, Selector);
-            console.log(el.offsetTop);
             animate(docScrollTag, { scrollTop: el.offsetTop - offset });
         }
     },

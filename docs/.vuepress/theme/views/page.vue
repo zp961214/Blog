@@ -29,9 +29,7 @@ export default {
             return this.$page.path;
         }
     },
-    created() {
-        console.log(this.$router);
-    }
+    created() {}
 };
 </script>
 <style lang="scss" scoped>
