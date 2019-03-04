@@ -59,6 +59,7 @@ $margin: 25px;
     display: flex;
     justify-content: center;
     padding: 0 35px;
+    box-sizing: border-box;
     height: 100%;
     .container-categories {
         display: flex;

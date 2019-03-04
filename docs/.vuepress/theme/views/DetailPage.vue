@@ -5,21 +5,23 @@
             <Content></Content>
         </div>
         <section>
-            <div class="section-title" v-show="headers">
-                <span
-                    :class="{ sectionActive: sectionActive === item }"
-                    :key="item"
-                    @click="changeSection(item)"
-                    v-for="item in ['文章目录', '文章站点']"
-                    v-text="item"
-                />
+            <div :class="[{ affix }, 'container-section']">
+                <div class="section-title" v-show="headers">
+                    <span
+                        :class="{ sectionActive: sectionActive === item }"
+                        :key="item"
+                        @click="changeSection(item)"
+                        v-for="item in ['文章目录', '文章站点']"
+                        v-text="item"
+                    />
+                </div>
+                <ul ref="a" v-if="headers">
+                    <li :class="{ activeCurrent: activeCurrent === index }" :key="item.title" @click="scrollToView(item.slug)" v-for="(item, index) in headers">
+                        {{ index + 1 + '. ' + item.title }}
+                    </li>
+                </ul>
+                <div ref="b" :class="[{ asideShow: !headers }, 'aside-container']"><aside-info class="side-bar"></aside-info></div>
             </div>
-            <ul :class="{ affix }" ref="a" v-if="headers">
-                <li :class="{ activeCurrent: activeCurrent === index }" :key="item.title" @click="scrollToView(item.slug)" v-for="(item, index) in headers">
-                    {{ index + 1 + '. ' + item.title }}
-                </li>
-            </ul>
-            <div class="aside-container" ref="b" :class="{ asideShow: !headers }"><aside-info class="side-bar"></aside-info></div>
         </section>
     </div>
 </template>
@@ -130,67 +132,71 @@ export default {
     }
     section {
         position: relative;
-        margin: 0 0 0 25px;
         flex: 0 0 300px;
+        margin: 0 0 0 25px;
+        height: max-content;
         background: #fff;
         border-radius: 5px;
-        height: max-content;
-        .section-title {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            span {
-                margin: 0 5px;
-                padding-bottom: 4px;
+        .container-section {
+            .section-title {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                span {
+                    margin: 0 5px;
+                    padding-bottom: 4px;
+                    box-sizing: border-box;
+                    &:hover {
+                        cursor: pointer;
+                        color: #fc6423;
+                    }
+                }
+                .sectionActive {
+                    opacity: 1;
+                    color: #fc6423;
+                    border-bottom: 1px solid #fc6423;
+                }
+            }
+            ul {
+                padding: 20px;
+                margin: 0;
                 box-sizing: border-box;
-                &:hover {
+                width: 100%;
+                color: #555;
+                font-size: 14px;
+                box-shadow: initial;
+                border-radius: initial;
+                border-radius: 5px;
+                z-index: 2;
+                li {
                     cursor: pointer;
+                    margin-bottom: 5px;
+                }
+                .activeCurrent {
                     color: #fc6423;
                 }
             }
-            .sectionActive {
-                opacity: 1;
-                color: #fc6423;
-                border-bottom: 1px solid #fc6423;
+            .aside-container {
+                display: none;
+                .side-bar {
+                    position: unset;
+                    top: 20px;
+                    right: unset;
+                    left: unset;
+                    transform: translate(0, 0);
+                }
             }
-        }
-        ul {
-            padding: 20px;
-            margin: 0;
-            box-sizing: border-box;
-            width: 100%;
-            color: #555;
-            font-size: 14px;
-            box-shadow: initial;
-            border-radius: initial;
-            border-radius: 5px;
-            z-index: 2;
-            li {
-                cursor: pointer;
-                margin-bottom: 5px;
+            .asideShow {
+                display: block;
             }
-            .activeCurrent {
-                color: #fc6423;
-            }
-        }
-        .aside-container {
-            display: none;
-            .side-bar {
-                position: unset;
-                top: 20px;
-                right: unset;
-                left: unset;
-                transform: translate(0, 0);
-            }
-        }
-        .asideShow {
-            display: block;
         }
     }
     .affix {
         position: fixed;
         width: 300px;
         top: 20px;
+        background: #fff;
+        border-radius: 5px;
     }
 }
 </style>
