@@ -1,5 +1,7 @@
 <template>
     <header class="nav-menu">
+        <div class="blur-mask"></div>
+        <div class="nav-mask"></div>
         <div class="site-desc">
             <a class="logo"></a>
             <span class="author-name">Valor Eyo</span>
@@ -35,19 +37,40 @@ export default {
 </script>
 <style lang="scss" scoped>
 .nav-menu {
-    // background: rgba(251, 253, 251, 0.9);
-    background: rgba(255, 255, 255, 0.4);
+    position: relative;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 40px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
     color: #222;
     box-sizing: border-box;
     line-height: 40px;
     transition: all 1s;
     z-index: 6;
+    .blur-mask {
+        background: url('../images/bg.jpg');
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        // background: rgba(255, 255, 255, 0.4);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(20px);
+        z-index: -1;
+    }
+    .nav-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: hsla(0, 0%, 100%, 0.4);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
     .site-desc {
         display: flex;
         position: absolute;
@@ -78,10 +101,14 @@ export default {
         margin: 0;
         margin-right: 15px;
         box-sizing: border-box;
+        background: hsla(0, 0%, 100%, 0);
         li {
             padding: 0 7px;
             font-size: 14px;
             line-height: 40px;
+            z-index: 2;
+            color: #222;
+
             &:hover {
                 cursor: pointer;
                 background: rgba(255, 255, 255, 0.3);

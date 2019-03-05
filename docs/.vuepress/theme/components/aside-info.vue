@@ -1,7 +1,7 @@
 <template>
     <aside class="site-bar">
         <div class="site-author">
-            <img alt="author-Avatar" src="~@theme/images/avatar.jpg" />
+            <img alt="author-Avatar" src="~@theme/images/aa.jpg" />
             <p class="description">让我试试</p>
             <ul class="link-of-author-motion">
                 <li :key="i" @click="openPage(item.href)" v-for="(item, i) in hrefList">

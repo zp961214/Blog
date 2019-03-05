@@ -1,7 +1,7 @@
 <template>
     <div class="banner-section">
         <div class="site-banner-author">
-            <img alt="avatar" class="avatar tada" src="~@theme/images/headpic.jpg" />
+            <img alt="avatar" class="avatar tada" src="~@theme/images/bb.jpg" />
             <div class="site-banner-desc">
                 <span>今天也是元气满满的一天。</span>
                 <span></span>
@@ -49,7 +49,7 @@ export default {
 }
 .banner-section {
     position: relative;
-    height: 400px;
+    height: 500px;
     background: url('../images/bg.jpg') center center no-repeat;
     background-size: cover;
     .site-banner-author {
