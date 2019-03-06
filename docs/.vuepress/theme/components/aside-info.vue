@@ -1,8 +1,8 @@
 <template>
     <aside class="site-bar">
         <div class="site-author">
-            <img alt="author-Avatar" src="~@theme/images/aa.jpg" />
-            <p class="description">让我试试</p>
+            <img alt="author-Avatar" src="~@theme/images/yn-bg.jpg" />
+            <p class="description"></p>
             <ul class="link-of-author-motion">
                 <li :key="i" @click="openPage(item.href)" v-for="(item, i) in hrefList">
                     <i :class="['iconfont', item.icon]"></i>

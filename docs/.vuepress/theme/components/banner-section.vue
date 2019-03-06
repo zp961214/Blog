@@ -1,9 +1,9 @@
 <template>
     <div class="banner-section">
         <div class="site-banner-author">
-            <img alt="avatar" class="avatar tada" src="~@theme/images/bb.jpg" />
+            <img alt="avatar" class="avatar tada" src="~@theme/images/yn-head.jpg" />
             <div class="site-banner-desc">
-                <span>今天也是元气满满的一天。</span>
+                <span> 你好啊 </span>
                 <span></span>
             </div>
         </div>
@@ -50,7 +50,7 @@ export default {
 .banner-section {
     position: relative;
     height: 500px;
-    background: url('../images/bg.jpg') center center no-repeat;
+    background: url('../images/bg1.jpg') center center no-repeat;
     background-size: cover;
     .site-banner-author {
         width: 550px;
@@ -62,7 +62,7 @@ export default {
         align-items: center;
         left: 50%;
         bottom: 50px;
-        background: rgba(255, 255, 255, 0.88);
+        background: rgba(255, 255, 255, 0.67);
         margin-left: -275px;
         box-sizing: border-box;
         padding: 10px 20px;

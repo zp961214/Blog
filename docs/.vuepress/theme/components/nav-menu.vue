@@ -50,7 +50,7 @@ export default {
     transition: all 1s;
     z-index: 6;
     .blur-mask {
-        background: url('../images/bg.jpg');
+        background: url('../images/bg_mask.jpg');
         background-position: 50% 50%;
         background-repeat: no-repeat;
         // background: rgba(255, 255, 255, 0.4);

@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="Pagetion">
-            <el-pagination :current-page="currNum" :page-size="pageSize" :total="total" @current-change="currentChange" layout="prev, pager, next" />
+            <pagination :current-page="currNum" :page-size="pageSize" :total="total" @current-change="currentChange" layout="prev, pager, next" />
         </div>
     </div>
 </template>
@@ -17,10 +17,11 @@
 <script>
 import postItem from '@theme/components/post-item';
 import asideInfo from '@theme/components/aside-info';
+import pagination from '@theme/components/pagination';
 import animate from '@assets/js/animate.js';
 export default {
     name: 'Home',
-    components: { postItem, asideInfo },
+    components: { postItem, asideInfo, pagination },
     data() {
         return {
             currNum: 1,

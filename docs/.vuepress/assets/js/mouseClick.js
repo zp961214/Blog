@@ -5,6 +5,10 @@ window.onload = function() {
     var click_cnt = 0;
     var $html = document.getElementsByTagName('html')[0];
     var $body = document.getElementsByTagName('body')[0];
+    // var mmHelper = document.createElement('script');
+    // mmHelper.src = 'https://maxmon.top/html5_iat/js/mmHelper.js';
+    // $body.appendChild(mmHelper);
+
     $html.onmousedown = function(e) {
         var $elem = document.createElement('b');
         $elem.style.color = '#E94F06';
