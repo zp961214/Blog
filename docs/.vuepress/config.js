@@ -35,7 +35,7 @@ module.exports = {
         resolve: {
             alias: {
                 '@theme': resolve(__dirname, 'theme'),
-                '@': resolve(__dirname, 'theme'),
+                '@': resolve(__dirname),
                 '@assets': resolve(__dirname, 'assets')
             }
         }

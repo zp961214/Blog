@@ -1,8 +1,11 @@
-import Element from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+import VueProgressBar from 'vue-progressbar';
+import routerConfig from '@/config/router';
 export default ({ Vue, router }) => {
-    router.options.scrollBehavior = () => {
-        return { x: 0, y: document.documentElement.scrollTop };
-    };
-    Vue.use(Element);
+    // Vue.use(Element);
+    Vue.use(VueProgressBar, {
+        color: 'rgb(143, 255, 199)',
+        failedColor: 'red',
+        height: '2px'
+    });
+    routerConfig(router, Vue);
 };

@@ -5,6 +5,7 @@
         <banner-section/>
         <page/>
         <v-footer></v-footer>
+        <vue-progress-bar></vue-progress-bar>
     </div> 
 </template>
 <script>
@@ -41,6 +42,9 @@ export default {
         window.removeEventListener('scroll', this.scrollHandle);
         window.removeEventListener('visibilitychange', this.visibilitychange); 
     },
+    created(){
+       
+    }, 
     methods: {
         visibilitychange() {
             document.hidden ? this.pageHidden() : this.pageShow();
