@@ -1,7 +1,7 @@
 <template>
     <div class="banner-section">
         <div class="site-banner-author">
-            <img alt="avatar" class="avatar tada" src="~@theme/images/yn-head.jpg" />
+            <img alt="avatar" class="avatar tada" src="~@theme/images/head.jpg" />
             <div class="site-banner-desc">
                 <span> 你好啊 </span>
                 <span></span>

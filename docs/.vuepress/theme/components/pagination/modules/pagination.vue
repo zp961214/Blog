@@ -20,9 +20,9 @@
     </ul>
 </template>
 
-<script type="text/babel">
+<script>
 export default {
-    name: 'ElPager',
+    name: 'pagination',
 
     props: {
         currentPage: Number,
