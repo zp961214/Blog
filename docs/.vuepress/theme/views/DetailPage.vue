@@ -3,8 +3,9 @@
         <div class="DetailPage-container">
             <h1 class="title">{{ this.$page.title }}</h1>
             <Content></Content>
+            <div id="disqus_thread"></div>
         </div>
-        <section>
+        <section class="section-main">
             <div :class="[{ affix }, 'container-section']">
                 <div class="section-title" v-show="headers">
                     <span
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+import DisqusJS from 'disqusjs';
 import animate from '@assets/js/animate.js';
 import asideInfo from '@theme/components/aside-info';
 export default {
@@ -87,7 +89,7 @@ export default {
         },
 
         scrollHandle() {
-            const { el, docScrollTag } = this.getScrollTag('section', '');
+            const { el, docScrollTag } = this.getScrollTag('section-main', '.');
             const { scrollTop } = docScrollTag;
             this.affix = scrollTop > el.offsetTop - 20;
             if (this.headers_ele) this.asideHandle(scrollTop);
@@ -106,6 +108,16 @@ export default {
     mounted() {
         window.addEventListener('scroll', this.scrollHandle);
         this.scrollToView('page-main', '.', 70);
+        new DisqusJS({
+            shortname: 'izp-me',
+            siteName: 'izp.me',
+            identifier: document.location.origin + document.location.pathname + document.location.search,
+            url: document.location.origin + document.location.pathname + document.location.search,
+            api: 'https://disqus.skk.moe/disqus/',
+            apikey: 'HplZkNQIgZwjGaxqaWErD6XyEl0hzqnV08qqfG8dhTCQRWUK6glTCw8vz12pMCM3',
+            admin: 'valor_coc',
+            adminLabel: ''
+        });
     },
 
     beforeDestroy() {
@@ -212,3 +224,4 @@ export default {
     }
 }
 </style>
+<style src="disqusjs/dist/disqusjs.css"></style>
