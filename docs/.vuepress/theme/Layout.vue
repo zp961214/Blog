@@ -6,7 +6,7 @@
         <page />
         <v-footer></v-footer>
         <vue-progress-bar></vue-progress-bar>
-        <div :class="['back-to-top', { canBackTop }]" @click="backTop">
+        <div :class="['back-to-top', { canBackTop }]" :style="backTopStyle" @click="backTop">
             <i class="fa fa-arrow-up"></i>
         </div>
     </div>
@@ -33,7 +33,8 @@ export default {
             title: '',
             MenuHidden: false,
             scrollTop: 0,
-            canBackTop: false
+            canBackTop: false,
+            backTopStyle: { top: 0 }
         };
     },
     mounted() {
@@ -41,13 +42,17 @@ export default {
         this.scrollTopInit();
         window.addEventListener('visibilitychange', this.visibilitychange);
         window.addEventListener('scroll', this.scrollHandle);
-        import('../assets/js/mouseClick.js'); 
+        this.$nextTick(() => {
+            this.backTopStyle.top = -parseInt(window.innerHeight) + 'px';
+            console.log(this.backTopStyle.top);
+        });
+
+        // import('../assets/js/mouseClick.js');
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.scrollHandle);
         window.removeEventListener('visibilitychange', this.visibilitychange);
     },
-    created() {},
     methods: {
         visibilitychange() {
             document.hidden ? this.pageHidden() : this.pageShow();
@@ -106,16 +111,16 @@ export default {
         cursor: pointer;
         position: fixed;
         right: 50px;
-        top: -900px;
         z-index: 2;
         width: 70px;
         height: 900px;
+        top: -900px;
         background: url('~@theme/images/scroll.png');
         transition: all 0.5s ease-in-out;
         opacity: 1;
     }
     .canBackTop {
-        top: -11px;
+        top: -11px !important;
     }
 }
 </style>
