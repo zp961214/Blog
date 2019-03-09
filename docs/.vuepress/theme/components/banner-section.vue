@@ -48,24 +48,23 @@ export default {
     }
 }
 .banner-section {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 500px;
     background: url('../images/bg1.jpg') center center no-repeat;
     background-size: cover;
     .site-banner-author {
-        width: 550px;
+        width: 50%;
         height: 240px;
-        position: absolute;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        left: 50%;
-        bottom: 50px;
         background: rgba(255, 255, 255, 0.67);
-        margin-left: -275px;
         box-sizing: border-box;
         padding: 10px 20px;
+        margin-top: 16%;
         .avatar {
             display: block;
             width: 100px;
@@ -86,6 +85,21 @@ export default {
                     color: #ff3f1a;
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1116px) and (min-width: 800px) {
+    .banner-section {
+        .site-banner-author {
+            width: 60%;
+        }
+    }
+}
+@media screen and(max-width: 900px) {
+    .banner-section {
+        .site-banner-author {
+            width: 80%;
         }
     }
 }

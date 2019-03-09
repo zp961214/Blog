@@ -130,7 +130,10 @@ export default {
     display: flex;
     width: 1100px;
     margin: 0 auto;
+    padding: 0 35px;
+    box-sizing: border-box;
     .DetailPage-container {
+        width: 100%;
         padding: 40px;
         box-sizing: border-box;
         border-radius: 5px;
@@ -209,6 +212,30 @@ export default {
         top: 20px;
         background: #fff;
         border-radius: 5px;
+    }
+}
+@media screen and (max-width: 1116px) {
+    #DetailPage {
+        display: flex;
+        width: auto;
+        margin: 0 auto;
+        padding: 0;
+        .DetailPage-container {
+            padding: 40px 20px;
+        }
+        section {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 1116px) and (min-width: 800px) {
+    #DetailPage {
+        display: flex;
+        width: 800px;
+        margin: 0 auto;
+        section {
+            display: none;
+        }
     }
 }
 </style>

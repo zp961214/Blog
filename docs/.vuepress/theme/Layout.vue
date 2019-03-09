@@ -6,7 +6,7 @@
         <page />
         <v-footer></v-footer>
         <vue-progress-bar></vue-progress-bar>
-        <div :class="['back-to-top', { canBackTop }]" :style="backTopStyle" @click="backTop">
+        <div class="back-to-top" :style="backTopStyle" @click="backTop">
             <i class="fa fa-arrow-up"></i>
         </div>
     </div>
@@ -34,7 +34,7 @@ export default {
             MenuHidden: false,
             scrollTop: 0,
             canBackTop: false,
-            backTopStyle: { top: 0 }
+            backTopStyle: { top: '-900px' }
         };
     },
     mounted() {
@@ -42,10 +42,8 @@ export default {
         this.scrollTopInit();
         window.addEventListener('visibilitychange', this.visibilitychange);
         window.addEventListener('scroll', this.scrollHandle);
-        this.$nextTick(() => {
-            this.backTopStyle.top = -parseInt(window.innerHeight) + 'px';
-            console.log(this.backTopStyle.top);
-        });
+        // this.backTopStyle.top = -parseInt(window.innerHeight) + 'px';
+        console.log(this.backTopStyle.top);
 
         // import('../assets/js/mouseClick.js');
     },
@@ -75,7 +73,7 @@ export default {
             const { el, docScrollTag } = this.getScrollTag('page-main', '.');
             const { scrollTop } = docScrollTag;
             this.MenuHidden = scrollTop > this.scrollTop;
-            this.canBackTop = scrollTop > el.offsetTop - 20;
+            this.backTopStyle.top = scrollTop > el.offsetTop + 100 ? -900 + window.innerHeight - 80 + 'px' : '-900px';
             this.scrollTop = scrollTop;
         },
 
@@ -97,7 +95,7 @@ export default {
     }
 };
 </script>
-<style src="prismjs/themes/prism-tomorrow.css"></style>
+<style src="prismjs/themes/prism.css"></style>
 <style lang="scss">
 @import './styles/base.scss';
 @import './styles/theme.scss';
@@ -121,6 +119,13 @@ export default {
     }
     .canBackTop {
         top: -11px !important;
+    }
+}
+@media screen and (max-width: 1116px) {
+    .theme-container {
+        .back-to-top {
+            display: none;
+        }
     }
 }
 </style>

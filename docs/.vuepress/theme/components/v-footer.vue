@@ -29,7 +29,6 @@ export default {
     background: #f6f9fa;
     text-align: center;
     .contaienr {
-        width: 1100px;
         margin: 0 auto;
     }
 }
