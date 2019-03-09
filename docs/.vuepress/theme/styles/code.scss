@@ -33,7 +33,7 @@ $codeLang: js ts html md vue css sass scss less stylus go java c sh yaml py dock
     overflow: auto;
     code {
       font-size: 0.74rem;
-      color: #fff;
+      color: #525252;
       padding: 0;
       background-color: transparent;
       border-radius: 0;
@@ -41,7 +41,7 @@ $codeLang: js ts html md vue css sass scss less stylus go java c sh yaml py dock
   }
 }
 
-div[class*="language-"] {
+div[class*="language-"] { 
   position: relative;
   background-color: $codeBgColor;
   border-radius: 6px;
