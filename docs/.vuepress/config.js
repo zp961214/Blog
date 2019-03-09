@@ -3,10 +3,7 @@ const resolve = (...arg) => path.resolve(...arg);
 module.exports = {
     title: 'Hi,valor',
     description: 'Just playing around',
-    head: [
-        ['link', { rel: 'icon', href: '/logo.png' }],
-        ['mate', { content: 'initial-scale=0.5', 'maximum-scale': 0.5, 'minimum-scale': 0.5, 'user-scalable': 'no', 'viewport-fit': 'cover' }]
-    ],
+    head: [['link', { rel: 'icon', href: '/logo.png' }], ['mate', { name: 'viewport', content: 'width=device-width,initial-scale=1,maximum-scale=1' }]],
     locales: {
         '/': {
             lang: 'zh-CN',

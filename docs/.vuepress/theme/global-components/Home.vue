@@ -1,11 +1,13 @@
 <template>
     <div class="post">
         <div class="container">
-            <div class="post-container">
-                <post-item :content="content" :key="content.key" class="post-item" v-for="content in currentItems" />
-            </div>
-            <div class="site-info">
-                <aside-info :class="['post-aside', { affix }]" />
+            <div class="wrapper-container">
+                <div class="post-container">
+                    <post-item :content="content" :key="content.key" class="post-item" v-for="content in currentItems" />
+                </div>
+                <div class="site-info">
+                    <aside-info :class="['post-aside', { affix }]" />
+                </div>
             </div>
         </div>
         <div class="Pagetion">
@@ -77,7 +79,7 @@ export default {
     },
 
     mounted() {
-        this.scrollToView('post', '.');
+        this.scrollToView('post', '.', 30);
         window.addEventListener('scroll', this.scrollHandle);
     },
     beforeDestroy() {
@@ -87,33 +89,74 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$asideWidth: 285px;
 .post {
     box-sizing: border-box;
     .container {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        .post-container {
-            max-width: 800px;
-            padding: 0 35px;
+        width: 1100px;
+        margin: 0 auto;
+        &::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrapper-container {
+            .post-container {
+                float: left;
+                max-width: 800px;
+                padding: 0 35px;
+                box-sizing: border-box;
+                width: calc(100% - #{$asideWidth});
+            }
+            .site-info {
+                float: left;
+                width: $asideWidth;
+                .post-aside {
+                    position: static;
+                    left: unset;
+                    top: 0;
+                    right: 0;
+                    height: max-content;
+                    box-sizing: border-box;
+                    transform: translate(0, 0);
+                }
+                .affix {
+                    position: fixed;
+                    top: 20px;
+                    right: unset;
+                    left: unset;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1116px) {
+    .post {
+        box-sizing: border-box;
+        .container {
+            width: auto;
+            margin: 0 auto;
+            .wrapper-container {
+                .post-container {
+                    padding: 0;
+                    width: 100%;
+                    .post-item {
+                        padding: 40px 20px;
+                    }
+                }
+            }
         }
         .site-info {
-            width: 285px;
+            display: none;
         }
-        .post-aside {
-            position: static;
-            left: unset;
-            top: 0;
-            right: 0;
-            height: max-content;
-            box-sizing: border-box;
-            transform: translate(0, 0);
-        }
-        .affix {
-            position: fixed;
-            top: 20px;
-            right: unset;
-            left: unset;
+    }
+}
+@media screen and (max-width: 1116px) and (min-width: 800px) {
+    .post {
+        box-sizing: border-box;
+        .container {
+            width: 800px;
+            margin: 0 auto;
         }
     }
 }
