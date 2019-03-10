@@ -36,7 +36,7 @@ export default {
 .page-main {
     background: #efefef;
     box-sizing: border-box;
-    padding-top: 60px;
+    padding: 60px 0;
     .theme-container {
         // background-image: radial-gradient(
         //   ellipse farthest-corner at 50% 0,
@@ -49,7 +49,7 @@ export default {
 
 @media screen and (max-width: 900px) {
     .page-main {
-        padding-top: 40px;
+        padding: 40px 0;
     }
 }
 </style>

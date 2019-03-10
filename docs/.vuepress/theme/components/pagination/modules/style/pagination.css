@@ -802,7 +802,6 @@
     white-space: nowrap;
     padding: 2px 5px;
     color: #303133;
-    font-weight: 700;
 }
 .el-pagination::after,
 .el-pagination::before {
@@ -815,8 +814,7 @@
 .el-pagination button,
 .el-pagination span:not([class*='suffix']) {
     display: inline-block;
-    font-size: 13px;
-    min-width: 35.5px;
+    font-size: 14px;
     height: 28px;
     line-height: 28px;
     vertical-align: top;
@@ -850,7 +848,8 @@
     outline: 0;
 }
 .el-pagination button:hover {
-    color: #409eff;
+       color: #303133;  
+    
 }
 .el-pagination button:disabled {
     color: #c0c4cc;
@@ -861,9 +860,10 @@
 .el-pagination .btn-prev {
     background: center center no-repeat #fff;
     background-size: 16px;
+    
     cursor: pointer;
     margin: 0;
-    color: #303133;
+    color: #409eff; 
 }
 .el-pagination .btn-next .el-icon,
 .el-pagination .btn-prev .el-icon {
@@ -1017,8 +1017,7 @@
 .el-pager li {
     padding: 0 4px;
     background: #fff;
-    font-size: 13px;
-    min-width: 35.5px;
+    font-size: 14px; 
     height: 28px;
     line-height: 28px;
     -webkit-box-sizing: border-box;
@@ -1033,14 +1032,13 @@
 .el-pager li.btn-quicknext.disabled,
 .el-pager li.btn-quickprev.disabled {
     color: #c0c4cc;
-}
-.el-pager li.active + li {
-    border-left: 0;
-}
+} 
 .el-pager li:hover {
-    color: #409eff;
+    background: #97dffd;
+    color: #fff;
 }
 .el-pager li.active {
-    color: #409eff;
-    cursor: default;
+    background: #97dffd;
+    border: 1px solid #97dffd;
+    color: #fff;
 }

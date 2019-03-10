@@ -4,14 +4,14 @@
             <div class="wrapper-container">
                 <div class="post-container">
                     <post-item :content="content" :key="content.key" class="post-item" v-for="content in currentItems" />
+                    <div class="pagetion-wrapper">
+                        <pagination :current-page="currNum" :page-size="pageSize" :total="total" @current-change="currentChange" layout="prev, pager, next" />
+                    </div>
                 </div>
                 <div class="site-info">
                     <aside-info :class="['post-aside', { affix }]" />
                 </div>
             </div>
-        </div>
-        <div class="Pagetion">
-            <pagination :current-page="currNum" :page-size="pageSize" :total="total" @current-change="currentChange" layout="prev, pager, next" />
         </div>
     </div>
 </template>
@@ -162,8 +162,22 @@ $asideWidth: 285px;
 }
 </style>
 <style lang="scss">
-.Pagetion {
+.pagetion-wrapper {
+    background: #fff;
     display: flex;
     justify-content: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+    li {
+        background: #fff;
+        color: #97dffd;
+        border-radius: 5px;
+        border: 1px solid #97dffd;
+        margin: 0 10px;
+        padding: 0 11px;
+    }
+    .el-pagination button:disabled {
+        display: none;
+    }
 }
 </style>

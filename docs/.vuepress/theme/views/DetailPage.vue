@@ -1,29 +1,38 @@
 <template>
     <div id="DetailPage">
         <div class="DetailPage-container">
-            <h1 class="title">{{ this.$page.title }}</h1>
-            <Content></Content>
+            <div class="DetailPage-wrapper">
+                <h1 class="title">{{ this.$page.title }}</h1>
+                <Content></Content>
+            </div>
+            <section class="section-wrapper">
+                <div :class="[{ affix }, 'container-section']">
+                    <div class="section-title" v-show="headers">
+                        <span
+                            :class="{ sectionActive: sectionActive === item }"
+                            :key="item"
+                            @click="changeSection(item)"
+                            v-for="item in ['文章目录', '文章站点']"
+                            v-text="item"
+                        />
+                    </div>
+                    <ul ref="a" v-if="headers">
+                        <li
+                            :class="{ activeCurrent: activeCurrent === index }"
+                            :key="item.title"
+                            @click="scrollToView(item.slug)"
+                            v-for="(item, index) in headers"
+                        >
+                            {{ index + 1 + '. ' + item.title }}
+                        </li>
+                    </ul>
+                    <div ref="b" :class="[{ asideShow: !headers }, 'aside-container']"><aside-info class="side-bar"></aside-info></div>
+                </div>
+            </section>
+        </div>
+        <div class="disqus-wrapper">
             <div id="disqus_thread"></div>
         </div>
-        <section class="section-main">
-            <div :class="[{ affix }, 'container-section']">
-                <div class="section-title" v-show="headers">
-                    <span
-                        :class="{ sectionActive: sectionActive === item }"
-                        :key="item"
-                        @click="changeSection(item)"
-                        v-for="item in ['文章目录', '文章站点']"
-                        v-text="item"
-                    />
-                </div>
-                <ul ref="a" v-if="headers">
-                    <li :class="{ activeCurrent: activeCurrent === index }" :key="item.title" @click="scrollToView(item.slug)" v-for="(item, index) in headers">
-                        {{ index + 1 + '. ' + item.title }}
-                    </li>
-                </ul>
-                <div ref="b" :class="[{ asideShow: !headers }, 'aside-container']"><aside-info class="side-bar"></aside-info></div>
-            </div>
-        </section>
     </div>
 </template>
 
@@ -89,7 +98,7 @@ export default {
         },
 
         scrollHandle() {
-            const { el, docScrollTag } = this.getScrollTag('section-main', '.');
+            const { el, docScrollTag } = this.getScrollTag('section-wrapper', '.');
             const { scrollTop } = docScrollTag;
             this.affix = scrollTop > el.offsetTop - 20;
             if (this.headers_ele) this.asideHandle(scrollTop);
@@ -127,114 +136,139 @@ export default {
 </script>
 <style lang="scss" scoped>
 #DetailPage {
-    display: flex;
-    width: 1100px;
-    margin: 0 auto;
-    padding: 0 35px;
-    box-sizing: border-box;
     .DetailPage-container {
-        width: 100%;
-        padding: 40px;
+        display: flex;
+        width: 1100px;
+        margin: 0 auto;
+        padding: 0 35px;
         box-sizing: border-box;
-        border-radius: 5px;
-        background: #fff;
-        color: #555;
-        .title {
-            font-size: 25px;
-            text-align: center;
-            margin-bottom: 18px;
+        .DetailPage-wrapper {
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            background: #fff;
+            color: #34495e;
+            .title {
+                font-size: 25px;
+                text-align: center;
+                margin-bottom: 18px;
+            }
         }
-    }
-    section {
-        position: relative;
-        flex: 0 0 300px;
-        margin: 0 0 0 25px;
-        height: max-content;
-        background: #fff;
-        border-radius: 5px;
-        .container-section {
-            .section-title {
-                display: flex;
-                justify-content: center;
-                margin-top: 20px;
-                span {
-                    margin: 0 5px;
-                    padding-bottom: 4px;
+        .section-wrapper {
+            position: relative;
+            flex: 0 0 300px;
+            margin: 0 0 0 25px;
+            height: max-content;
+            background: #fff;
+            border-radius: 5px;
+            .container-section {
+                .section-title {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 20px;
+                    span {
+                        margin: 0 5px;
+                        padding-bottom: 4px;
+                        box-sizing: border-box;
+                        &:hover {
+                            cursor: pointer;
+                            color: #fc6423;
+                        }
+                    }
+                    .sectionActive {
+                        opacity: 1;
+                        color: #fc6423;
+                        border-bottom: 1px solid #fc6423;
+                    }
+                }
+                ul {
+                    padding: 20px;
+                    margin: 0;
                     box-sizing: border-box;
-                    &:hover {
+                    width: 100%;
+                    color: #555;
+                    font-size: 14px;
+                    box-shadow: initial;
+                    border-radius: initial;
+                    border-radius: 5px;
+                    z-index: 2;
+                    li {
                         cursor: pointer;
+                        margin-bottom: 5px;
+                    }
+                    .activeCurrent {
                         color: #fc6423;
                     }
                 }
-                .sectionActive {
-                    opacity: 1;
-                    color: #fc6423;
-                    border-bottom: 1px solid #fc6423;
+                .aside-container {
+                    display: none;
+                    .side-bar {
+                        position: unset;
+                        top: 20px;
+                        right: unset;
+                        left: unset;
+                        transform: translate(0, 0);
+                    }
+                }
+                .asideShow {
+                    display: block;
                 }
             }
-            ul {
-                padding: 20px;
-                margin: 0;
-                box-sizing: border-box;
-                width: 100%;
-                color: #555;
-                font-size: 14px;
-                box-shadow: initial;
-                border-radius: initial;
+            .affix {
+                position: fixed;
+                width: 300px;
+                top: 20px;
+                background: #fff;
                 border-radius: 5px;
-                z-index: 2;
-                li {
-                    cursor: pointer;
-                    margin-bottom: 5px;
-                }
-                .activeCurrent {
-                    color: #fc6423;
-                }
-            }
-            .aside-container {
-                display: none;
-                .side-bar {
-                    position: unset;
-                    top: 20px;
-                    right: unset;
-                    left: unset;
-                    transform: translate(0, 0);
-                }
-            }
-            .asideShow {
-                display: block;
             }
         }
     }
-    .affix {
-        position: fixed;
-        width: 300px;
-        top: 20px;
-        background: #fff;
-        border-radius: 5px;
+    .disqus-wrapper {
+        width: 1100px;
+        margin: 50px auto 0;
+        #disqus_thread {
+            width: calc(1100px - 403px);
+            margin-left: 40px;
+            padding: 40px;
+            box-sizing: border-box;
+            border-right: 5px;
+            background: #fff;
+        }
     }
 }
 @media screen and (max-width: 1116px) {
     #DetailPage {
-        display: flex;
-        width: auto;
-        margin: 0 auto;
-        padding: 0;
         .DetailPage-container {
-            padding: 40px 20px;
+            width: auto;
+            padding: 0;
+            .DetailPage-wrapper {
+                padding: 40px 20px;
+            }
+            .section-wrapper {
+                display: none;
+            }
         }
-        section {
-            display: none;
+        .disqus-wrapper {
+            width: auto;
+            #disqus_thread {
+                width: 100%;
+                margin-left: 0;
+            }
         }
     }
 }
 @media screen and (max-width: 1116px) and (min-width: 800px) {
     #DetailPage {
-        display: flex;
-        width: 800px;
-        margin: 0 auto;
-        section {
-            display: none;
+        .DetailPage-container {
+            width: 800px;
+            padding: 0;
+            .section-wrapper {
+                display: none;
+            }
+        }
+        .disqus-wrapper {
+            width: 800px;
         }
     }
 }
