@@ -13,7 +13,8 @@
     "axios": "^0.18.0",
     "date-fns": "^1.30.1",
     "disqusjs": "^1.2.2",
-    "vue-progressbar": "^0.7.5"
+    "vue-progressbar": "^0.7.5",
+    "vuepress": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^5.12.1",
@@ -23,8 +24,7 @@
     "node-sass": "^4.11.0",
     "prettier": "^1.16.0",
     "sass-loader": "^7.1.0",
-    "vue": "^2.5.16",
-    "vuepress": "^0.14.8"
+    "vue": "^2.5.16"
   },
   "keywords": [],
   "license": "ISC",
