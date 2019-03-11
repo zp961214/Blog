@@ -59,8 +59,7 @@ body {
     overflow-y: auto;
 }
 
-.content:not(.custom) {
-    max-width: $contentWidth;
+.content:not(.custom) { 
     margin: 0 auto;
     padding: 2rem 2.5rem;
     > *:first-child {
