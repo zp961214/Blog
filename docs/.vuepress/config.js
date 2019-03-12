@@ -39,5 +39,13 @@ module.exports = {
                 '@assets': resolve(__dirname, 'assets')
             }
         }
+    },
+    plugins: {
+        '@vuepress/clean-urls': {},
+        '@vuepress/medium-zoom': {},
+        '@vuepress/nprogress': {},
+        '@vuepress/search': {
+            searchMaxSuggestions: 10
+        }
     }
 };
