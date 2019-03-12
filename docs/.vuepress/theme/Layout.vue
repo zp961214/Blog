@@ -1,6 +1,6 @@
 <template>
     <div class="theme-container">
-        <nav-menu :class="{ MenuHidden }" />
+        <app-header :class="{ MenuHidden }" />
         <mobileMenu />
         <banner-section />
         <page />
@@ -13,7 +13,7 @@
 </template>
 <script>
 import Page from '@theme/views/page.vue';
-import NavMenu from '@theme/components/nav-menu.vue';
+import appHeader from '@theme/components/app-header.vue';
 import mobileMenu from '@theme/components/mobile-menu';
 import bannerSection from '@theme/components/banner-section';
 import vFooter from '@theme/components/v-footer';
@@ -22,7 +22,7 @@ export default {
     name: 'Layout',
     components: {
         Page,
-        NavMenu,
+        appHeader,
         mobileMenu,
         bannerSection,
         vFooter
@@ -43,7 +43,6 @@ export default {
         window.addEventListener('visibilitychange', this.visibilitychange);
         window.addEventListener('scroll', this.scrollHandle);
         // this.backTopStyle.top = -parseInt(window.innerHeight) + 'px';
-        console.log(this.backTopStyle.top);
 
         // import('../assets/js/mouseClick.js');
     },

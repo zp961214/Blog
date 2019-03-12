@@ -1,8 +1,8 @@
 <template>
     <div class="post-item">
         <div class="post-date">
-            <p class="month">{{ content.lastUpdated | format('MM') }}月</p>
-            <p class="day">{{ content.lastUpdated | format('DD') }}</p>
+            <p class="month">{{ content.lastUpdated || new Date() | format('MM') }}月</p>
+            <p class="day">{{ content.lastUpdated || new Date() | format('DD') }}</p>
         </div>
         <div class="post-badge">{{ content.classify | initialUpperCase }}</div>
         <div class="post-content">
@@ -11,12 +11,12 @@
             </div>
             <div class="post-meta">
                 <span class="date">
-                    <span>发表于{{ content.lastUpdated | format('YYYY-MM-DD') }}</span>
+                    <span>发表于{{ content.lastUpdated || new Date() | format('YYYY-MM-DD') }}</span>
                     <i class="el-icon-date"></i>
                 </span>
                 <span class="words-count">
                     <span class="dot">•</span>
-                    <span class="label-desc">字数统计</span>
+                    <span class="label-desc">字数统计{{ content.frontmatter.wordCount }}</span>
                 </span>
                 <span class="read-times">
                     <span class="dot">•</span>

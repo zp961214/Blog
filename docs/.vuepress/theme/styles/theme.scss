@@ -62,9 +62,7 @@ body {
 .content:not(.custom) { 
     margin: 0 auto;
     padding: 2rem 2.5rem;
-    > *:first-child {
-        margin-top: $navbarHeight;
-    }
+  
     a:hover {
         text-decoration: underline;
     }

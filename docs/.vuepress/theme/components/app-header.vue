@@ -8,12 +8,15 @@
         </div>
 
         <ul>
+            <SearchBox />
             <li :key="item.text" @click="RouterTo(item)" v-for="item in nav">{{ item.text }}</li>
         </ul>
     </header>
 </template>
 <script>
+import SearchBox from '@SearchBox';
 export default {
+    components: { SearchBox },
     computed: {
         nav() {
             return this.$site.themeConfig.nav.filter(v => v.hide === undefined);
@@ -125,6 +128,20 @@ export default {
 @media screen and (max-width: 900px) {
     .nav-menu {
         display: none;
+    }
+}
+</style>
+<style lang="scss">
+.nav-menu {
+    .search-box {
+        display: flex;
+        align-self: center;
+        input {
+            height: 1.5rem;
+            line-height: 1.5rem;
+            background-position: 0.6rem 0.4rem;
+            background-size: 0.85rem;
+        }
     }
 }
 </style>
