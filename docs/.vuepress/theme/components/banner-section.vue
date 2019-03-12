@@ -89,7 +89,7 @@ export default {
     }
 }
 
-@media screen and (max-width: 1116px) and (min-width: 800px) {
+@media screen and (max-width: 1216px) and (min-width: 800px) {
     .banner-section {
         .site-banner-author {
             width: 60%;

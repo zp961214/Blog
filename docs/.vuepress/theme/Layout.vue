@@ -120,7 +120,7 @@ export default {
         top: -11px !important;
     }
 }
-@media screen and (max-width: 1116px) {
+@media screen and (max-width: 1216px) {
     .theme-container {
         .back-to-top {
             display: none;

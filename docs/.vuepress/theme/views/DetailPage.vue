@@ -138,7 +138,7 @@ export default {
 #DetailPage {
     .DetailPage-container {
         display: flex;
-        width: 1100px;
+        width: 1200px;
         margin: 0 auto;
         padding: 0 35px;
         box-sizing: border-box;
@@ -225,10 +225,10 @@ export default {
         }
     }
     .disqus-wrapper {
-        width: 1100px;
+        width: 1200px;
         margin: 50px auto 0;
         #disqus_thread {
-            width: calc(1100px - 403px);
+            width: calc(1200px - 403px);
             margin-left: 40px;
             padding: 40px;
             box-sizing: border-box;
@@ -237,7 +237,7 @@ export default {
         }
     }
 }
-@media screen and (max-width: 1116px) {
+@media screen and (max-width: 1216px) {
     #DetailPage {
         .DetailPage-container {
             width: auto;
@@ -258,7 +258,7 @@ export default {
         }
     }
 }
-@media screen and (max-width: 1116px) and (min-width: 800px) {
+@media screen and (max-width: 1216px) and (min-width: 800px) {
     #DetailPage {
         .DetailPage-container {
             width: 800px;

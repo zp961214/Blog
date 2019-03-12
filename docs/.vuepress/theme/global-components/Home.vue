@@ -93,7 +93,7 @@ $asideWidth: 285px;
 .post {
     box-sizing: border-box;
     .container {
-        width: 1100px;
+        width: 1200px;
         margin: 0 auto;
         &::after {
             content: '';
@@ -130,7 +130,7 @@ $asideWidth: 285px;
         }
     }
 }
-@media screen and (max-width: 1116px) {
+@media screen and (max-width: 1216px) {
     .post {
         box-sizing: border-box;
         .container {
@@ -151,7 +151,7 @@ $asideWidth: 285px;
         }
     }
 }
-@media screen and (max-width: 1116px) and (min-width: 800px) {
+@media screen and (max-width: 1216px) and (min-width: 800px) {
     .post {
         box-sizing: border-box;
         .container {
