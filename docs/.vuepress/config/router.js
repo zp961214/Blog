@@ -1,6 +1,5 @@
 export default (router, Vue) => {
     router.options.scrollBehavior = () => {
-        console.log(document.documentElement.scrollTop);
         return { x: 0, y: document.documentElement.scrollTop };
     };
     router.beforeHooks[0] = (to, from, next) => {
