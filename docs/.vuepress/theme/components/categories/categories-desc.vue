@@ -8,7 +8,7 @@
                 </div>
                 <ul>
                     <li v-for="item in items" :key="item.key" @click="$router.push({ path: item.path })">
-                        <span>{{ item.lastUpdated | format('YYYY-MM-DD') }}</span> <span>{{ item.title }} </span>
+                        <span>{{ date(item) | format('YYYY-MM-DD') }}</span> <span>{{ item.title }} </span>
                     </li>
                 </ul>
             </div>
@@ -36,8 +36,9 @@ export default {
 
     computed: {
         items() {
-            const is_post = new RegExp(`^/post/${this.type}/.*.html$`);
-            const post = this.$site.pages.filter(v => is_post.test(v.path)).sort((a, b) => b.lastUpdated - a.lastUpdated);
+            const date = this.date;
+            const is_post = new RegExp(`^/post/(.*)/.*`);
+            const post = this.$site.pages.filter(v => is_post.test(v.path)).sort((a, b) => date(b) - date(a));
             return post.map(v => ((v.classify = v.path.replace(is_post, '$1')), v));
         },
 
@@ -45,7 +46,11 @@ export default {
             return this.$route.query.type;
         }
     },
-    methods: {}
+    methods: {
+        date(ele) {
+            return ele.lastUpdated ? ele.elelastUpdated : ele.frontmatter.date;
+        }
+    }
 };
 </script>
 <style lang="scss" scoped>
