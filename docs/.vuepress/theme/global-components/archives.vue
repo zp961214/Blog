@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         date(ele) {
-            return ele.lastUpdated ? ele.elelastUpdated : ele.frontmatter.date;
+            return ele.lastUpdated ? ele.lastUpdated : ele.frontmatter.date;
         }
     }
 };

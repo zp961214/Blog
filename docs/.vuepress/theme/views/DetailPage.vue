@@ -81,19 +81,10 @@ export default {
         scrollToView(id, Selector, offset = 0) {
             const { el, docScrollTag } = this.getScrollTag(id, Selector);
             animate(docScrollTag, { scrollTop: el.offsetTop - offset });
-        },
-
-        scrollHandle() {
-            const { el, docScrollTag } = this.getScrollTag('section-wrapper', '.');
-            const { scrollTop } = docScrollTag;
-            this.affix = scrollTop > el.offsetTop - 20;
-            if (this.headers_ele) this.asideHandle(scrollTop);
-            else return;
         }
     },
 
     mounted() {
-        window.addEventListener('scroll', this.scrollHandle);
         new DisqusJS({
             shortname: 'izp-me',
             siteName: 'izp.me',
@@ -104,7 +95,6 @@ export default {
             admin: 'valor_coc',
             adminLabel: ''
         });
-        this.refresh ? '' : this.scrollToView('page-main', '.', 70);
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.scrollHandle);

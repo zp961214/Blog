@@ -115,7 +115,7 @@ export default {
     },
 
     mounted() {
-        this.scrollToView('app-container', '.', 30);
+        this.refresh_scroll ? '详情页刷新保留滚动条位置' : this.scrollToView('app-container', '.', 30);
         window.addEventListener('scroll', this.scrollHandle);
     },
 

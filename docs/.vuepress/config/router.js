@@ -4,7 +4,8 @@ export default (router, Vue) => {
     };
     router.beforeHooks[0] = (to, from, next) => {
         Vue.prototype.$Progress.start();
-        Vue.prototype.refresh = from.name === null ? true : false;
+        const to_detaipage = new RegExp(`^/post/(.*)/.*`);
+        Vue.prototype.refresh_scroll = from.name === null && to_detaipage.test(to.path) ? true : false;
         next();
     };
     router.afterHooks[0] = () =>
