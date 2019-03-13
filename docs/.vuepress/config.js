@@ -16,7 +16,8 @@ module.exports = {
         nav: [
             { text: '首页', link: '/', title: 'Home' },
             { text: '归档', link: '/archives/', title: 'Archives' },
-            { text: '分类', link: '/categories/', title: 'categories', hide: true }
+            { text: '分类', link: '/categories/', title: 'categories', hide: true },
+            { text: '打赏', link: '/tip/', title: 'tip' }
         ],
         sidebar: {
             '/archives/': ['/web/', '/web/first']
@@ -40,12 +41,21 @@ module.exports = {
             }
         }
     },
+    markdown: {
+        anchor: {
+            level: [1, 2, 3, 4, 5, 6],
+            permalinkSymbol: '#'
+        }
+    },
     plugins: {
         '@vuepress/clean-urls': {},
         '@vuepress/medium-zoom': {},
         '@vuepress/nprogress': {},
         '@vuepress/search': {
             searchMaxSuggestions: 10
+        },
+        '@vuepress/google-analytics': {
+            ga: 'UA-126621569-1'
         }
     }
 };

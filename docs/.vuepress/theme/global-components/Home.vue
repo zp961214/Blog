@@ -1,34 +1,37 @@
 <template>
-    <div class="post">
+    <!-- <div class="post">
         <div class="container">
             <div class="wrapper-container">
                 <div class="post-container">
-                    <post-item :content="content" :key="content.key" class="post-item" v-for="content in currentItems" />
-                    <div class="pagetion-wrapper">
-                        <pagination :current-page="currNum" :page-size="pageSize" :total="total" @current-change="currentChange" layout="prev, pager, next" />
-                    </div>
+                    
                 </div>
                 <div class="site-info">
                     <aside-info :class="['post-aside', { affix }]" />
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+    <app-container>
+        <post-item :content="content" :key="content.key" class="post-item" v-for="content in currentItems" />
+        <div class="pagetion-wrapper">
+            <pagination :current-page="currNum" :page-size="pageSize" :total="total" @current-change="currentChange" layout="prev, pager, next" />
+        </div>
+    </app-container>
 </template>
 
 <script>
 import postItem from '@theme/components/post-item';
-import asideInfo from '@theme/components/aside-info';
 import pagination from '@theme/components/pagination';
-import animate from '@assets/js/animate.js';
+import appContainer from '@theme/components/app-container';
 export default {
     name: 'Home',
-    components: { postItem, asideInfo, pagination },
+
+    components: { postItem, pagination, appContainer },
+
     data() {
         return {
             currNum: 1,
-            pageSize: 5,
-            affix: false
+            pageSize: 5
         };
     },
 
@@ -58,32 +61,7 @@ export default {
         currentChange(e) {
             this.scrollToView('page-main', '.');
             setTimeout(() => (this.currNum = e), 500);
-        },
-
-        getScrollTag(id, Selector = '#') {
-            const el = document.querySelector(Selector + id);
-            const docScrollTag = document.body.scrollTop ? document.body : document.documentElement;
-            return { el, docScrollTag };
-        },
-
-        scrollToView(id, Selector, offset = 0) {
-            const { el, docScrollTag } = this.getScrollTag(id, Selector);
-            animate(docScrollTag, { scrollTop: el.offsetTop - offset });
-        },
-
-        scrollHandle() {
-            const { el, docScrollTag } = this.getScrollTag('post', '.');
-            const { scrollTop } = docScrollTag;
-            this.affix = scrollTop > el.offsetTop - 20;
         }
-    },
-
-    mounted() {
-        this.scrollToView('post', '.', 30);
-        window.addEventListener('scroll', this.scrollHandle);
-    },
-    beforeDestroy() {
-        window.removeEventListener('scroll', this.scrollHandle);
     }
 };
 </script>

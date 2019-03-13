@@ -4,6 +4,7 @@ export default (router, Vue) => {
     };
     router.beforeHooks[0] = (to, from, next) => {
         Vue.prototype.$Progress.start();
+        Vue.prototype.refresh = from.name === null ? true : false;
         next();
     };
     router.afterHooks[0] = () =>

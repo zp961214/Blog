@@ -1,9 +1,8 @@
 <template>
-    <div id="DetailPage">
-        <!-- <div class="DetailPage-container">
-            <div class="DetailPage-wrapper">
-                <h1 class="title">{{ this.$page.title }}</h1>
-                <Content></Content>
+    <div class="app-container">
+        <div class="app-container-container">
+            <div class="app-container-wrapper">
+                <slot />
             </div>
             <section class="section-wrapper">
                 <div :class="[{ affix }, 'container-section']">
@@ -26,28 +25,19 @@
                             {{ index + 1 + '. ' + item.title }}
                         </li>
                     </ul>
-                    <div ref="b" :class="[{ asideShow: !headers }, 'aside-container']"><aside-info class="side-bar"></aside-info></div>
+                    <div ref="b" :class="[{ asideShow: !headers }, 'aside-container']"><aside-info class="side-bar" /></div>
                 </div>
             </section>
-        </div> -->
-        <app-container>
-            <h1 class="title">{{ this.$page.title }}</h1>
-            <Content></Content>
-        </app-container>
-        <div class="disqus-wrapper">
-            <div id="disqus_thread"></div>
         </div>
     </div>
 </template>
 
 <script>
-import DisqusJS from 'disqusjs';
 import animate from '@assets/js/animate.js';
-import appContainer from '@theme/components/app-container';
-
+import asideInfo from '@theme/components/aside-info';
 export default {
-    name: 'DetailPage',
-    components: { appContainer },
+    name: 'app-container',
+    components: { asideInfo },
     data() {
         return {
             affix: false,
@@ -55,6 +45,7 @@ export default {
             sectionActive: '文章目录'
         };
     },
+    /** 文章有目录时的逻辑 */
     computed: {
         headers() {
             return this.$page.headers;
@@ -72,6 +63,29 @@ export default {
         }
     },
     methods: {
+        changeSection(item) {
+            this.sectionActive = item;
+            const { a, b } = this.$refs;
+            const time = 200;
+            const type = [{ opacity: 0.5 }, time];
+            if (this.is_menu_show) {
+                animate(a, ...type, () => this.cb(a, 'block', time));
+                animate(b, ...type, () => this.cb(b, 'none', time));
+            } else {
+                animate(a, ...type, () => this.cb(a, 'none', time));
+                animate(b, ...type, () => this.cb(b, 'block', time));
+            }
+        },
+
+        cb(el, type, time) {
+            if (type === 'block') (el.style.display = 'block'), animate(el, { opacity: 1 }, time);
+            if (type === 'none') (el.style.display = 'none'), animate(el, { opacity: 0 }, time);
+        },
+
+        handlerClick(link) {
+            this.$router.push(link);
+        },
+
         getScrollTag(id, Selector = '#') {
             const el = document.querySelector(Selector + id);
             const docScrollTag = document.body.scrollTop ? document.body : document.documentElement;
@@ -84,42 +98,41 @@ export default {
         },
 
         scrollHandle() {
-            const { el, docScrollTag } = this.getScrollTag('section-wrapper', '.');
+            const { el, docScrollTag } = this.getScrollTag('app-container', '.');
             const { scrollTop } = docScrollTag;
             this.affix = scrollTop > el.offsetTop - 20;
             if (this.headers_ele) this.asideHandle(scrollTop);
             else return;
+        },
+
+        asideHandle(scrollTop) {
+            const [first] = this.headers_ele;
+            if (scrollTop > first) {
+                const list = this.headers_ele.filter(v => scrollTop > v);
+                this.activeCurrent = list.length - 1;
+            } else this.activeCurrent = -1;
         }
     },
 
     mounted() {
+        this.scrollToView('app-container', '.', 30);
         window.addEventListener('scroll', this.scrollHandle);
-        new DisqusJS({
-            shortname: 'izp-me',
-            siteName: 'izp.me',
-            identifier: document.location.origin + document.location.pathname + document.location.search,
-            url: document.location.origin + document.location.pathname + document.location.search,
-            api: 'https://disqus.skk.moe/disqus/',
-            apikey: 'HplZkNQIgZwjGaxqaWErD6XyEl0hzqnV08qqfG8dhTCQRWUK6glTCw8vz12pMCM3',
-            admin: 'valor_coc',
-            adminLabel: ''
-        });
-        this.refresh ? '' : this.scrollToView('page-main', '.', 70);
     },
+
     beforeDestroy() {
         window.removeEventListener('scroll', this.scrollHandle);
     }
 };
 </script>
 <style lang="scss" scoped>
-#DetailPage {
-    .DetailPage-container {
+.app-container {
+    .app-container-container {
         display: flex;
         width: 1200px;
         margin: 0 auto;
         padding: 0 35px;
         box-sizing: border-box;
-        .DetailPage-wrapper {
+        .app-container-wrapper {
             width: 100%;
             padding: 40px;
             box-sizing: border-box;
@@ -214,12 +227,12 @@ export default {
         }
     }
 }
-@media screen and (max-width: 1216px) {
-    #DetailPage {
-        .DetailPage-container {
+@media screen and (max-width: 1316px) {
+    .app-container {
+        .app-container-container {
             width: auto;
             padding: 0;
-            .DetailPage-wrapper {
+            .app-container-wrapper {
                 padding: 40px 20px;
             }
             .section-wrapper {
@@ -235,9 +248,9 @@ export default {
         }
     }
 }
-@media screen and (max-width: 1216px) and (min-width: 800px) {
-    #DetailPage {
-        .DetailPage-container {
+@media screen and (max-width: 1316px) and (min-width: 800px) {
+    .app-container {
+        .app-container-container {
             width: 800px;
             padding: 0;
             .section-wrapper {
@@ -250,16 +263,3 @@ export default {
     }
 }
 </style>
-<style lang="scss">
-#DetailPage {
-    .content {
-    }
-    img {
-        display: block;
-        max-width: 100%;
-        margin: 0 auto;
-        max-width: 400px;
-    }
-}
-</style>
-<style src="disqusjs/dist/disqusjs.css"></style>
