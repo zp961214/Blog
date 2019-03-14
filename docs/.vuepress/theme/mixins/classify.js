@@ -1,9 +1,11 @@
+import decodeUriComponent from 'decode-uri-component';
+
 export default {
     computed: {
         items() {
             const is_post = new RegExp(`^/post/(.*)/.*`);
             const post = this.$site.pages.filter(v => is_post.test(v.path)).sort((a, b) => b.lastUpdated - a.lastUpdated);
-            return post.map(v => ((v.classify = window.decodeURI(v.path.replace(is_post, '$1'))), v));
+            return post.map(v => ((v.classify = decodeUriComponent(v.path.replace(is_post, '$1'))), v));
         },
 
         classifyObj() {

@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import decodeUriComponent from 'decode-uri-component';
 import postItem from '@theme/components/post-item';
 import pagination from '@theme/components/pagination';
 import appContainer from '@theme/components/app-container';
@@ -39,7 +40,7 @@ export default {
         items() {
             const is_post = new RegExp(`^/post/(.*)/.*`);
             const post = this.$site.pages.filter(v => is_post.test(v.path)).sort((a, b) => b.lastUpdated - a.lastUpdated);
-            return post.map(v => ((v.classify = window.decodeURI(v.path.replace(is_post, '$1'))), v));
+            return post.map(v => ((v.classify = decodeUriComponent(v.path.replace(is_post, '$1'))), v));
         },
 
         total() {

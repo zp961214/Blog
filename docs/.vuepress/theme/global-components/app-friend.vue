@@ -1,7 +1,8 @@
 <template>
     <div class="app-friend">
         <app-container>
-            <!-- 内容写这里 -->
+            <h2>友链</h2>
+            <slot />
             <div id="disqus_thread" slot="footer"></div>
         </app-container>
     </div>
@@ -17,8 +18,8 @@ export default {
         return {};
     },
     methods: {},
-
     mounted() {
+        console.log(this.a);
         new DisqusJS({
             shortname: 'izp-me',
             siteName: 'izp.me',
@@ -34,6 +35,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .app-friend {
+    h2 {
+        text-align: center;
+    }
     #disqus_thread {
         padding: 40px;
         box-sizing: border-box;

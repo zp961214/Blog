@@ -1,7 +1,9 @@
 <template>
     <div class="app-comment">
         <app-container>
-            <!-- 内容写这里 -->
+            <h2>留言板</h2>
+            <p>这里就是唠嗑，咨询，感慨的地方啦，我会定期抽时间查看回复的~。</p>
+            <div><img src="~@theme/images/comment.jpg" alt="" /></div>
             <div id="disqus_thread" slot="footer"></div>
         </app-container>
     </div>
@@ -34,6 +36,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .app-comment {
+    img {
+        display: block;
+        width: 250px;
+        max-width: 100%;
+        margin: 15px auto;
+    }
     #disqus_thread {
         padding: 40px;
         box-sizing: border-box;

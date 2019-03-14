@@ -1,2 +1,2 @@
-<archives/> 
+<app-archives/> 
 

@@ -6,7 +6,6 @@
             <a class="logo"></a>
             <span class="author-name">Valor Eyo</span>
         </div>
-
         <ul>
             <SearchBox />
             <li :key="item.text" @click="RouterTo(item)" v-for="item in nav">{{ item.text }}</li>

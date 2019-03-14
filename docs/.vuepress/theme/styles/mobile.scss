@@ -12,7 +12,7 @@ $mobileSidebarWidth: $sidebarWidth * 0.82;
     padding-left: $mobileSidebarWidth;
   }
   .content:not(.custom) {
-    padding: 2rem;
+    // padding: 2rem;
   }
 }
 
@@ -40,7 +40,7 @@ $mobileSidebarWidth: $sidebarWidth * 0.82;
     font-size: 1.9rem;
   }
   .content:not(.custom) {
-    padding: 1.5rem;
+    // padding: 1.5rem;
   }
   .content {
     pre, pre[class*="language-"] {
