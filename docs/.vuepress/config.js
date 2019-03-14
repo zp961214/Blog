@@ -17,7 +17,9 @@ module.exports = {
             { text: '首页', link: '/', title: 'Home' },
             { text: '归档', link: '/archives/', title: 'Archives' },
             { text: '分类', link: '/categories/', title: 'categories', hide: true },
-            { text: '打赏', link: '/tip/', title: 'tip' }
+            { text: '打赏', link: '/tip/', title: 'tip' },
+            { text: '友链', link: '/friend/', title: 'friend' },
+            { text: '留言板', link: '/comment/', title: 'comment' }
         ],
         sidebar: {
             '/archives/': ['/web/', '/web/first']
