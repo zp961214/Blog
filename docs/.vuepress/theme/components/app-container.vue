@@ -29,6 +29,11 @@
                 </div>
             </section>
         </div>
+        <div class="footer-section">
+            <div class="footer-wrapper">
+                <slot name="footer" />
+            </div>
+        </div>
     </div>
 </template>
 
@@ -214,14 +219,13 @@ export default {
             }
         }
     }
-    .disqus-wrapper {
+    .footer-section {
         width: 1200px;
         margin: 50px auto 0;
-        #disqus_thread {
+        .footer-wrapper {
             width: calc(1200px - 403px);
             margin-left: 40px;
-            padding: 40px;
-            box-sizing: border-box;
+
             border-right: 5px;
             background: #fff;
         }
@@ -239,9 +243,9 @@ export default {
                 display: none;
             }
         }
-        .disqus-wrapper {
+        .footer-section {
             width: auto;
-            #disqus_thread {
+            .footer-wrapper {
                 width: 100%;
                 margin-left: 0;
             }
@@ -257,7 +261,7 @@ export default {
                 display: none;
             }
         }
-        .disqus-wrapper {
+        .footer-section {
             width: 800px;
         }
     }
