@@ -7472,10 +7472,6 @@ vue-loader@^15.2.4:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-progressbar@^0.7.5:
-  version "0.7.5"
-  resolved "http://registry.npm.taobao.org/vue-progressbar/download/vue-progressbar-0.7.5.tgz#414730892252b1e45582d4979dec93038e007f79"
-
 vue-router@^3.0.2:
   version "3.0.2"
   resolved "http://registry.npm.taobao.org/vue-router/download/vue-router-3.0.2.tgz#dedc67afe6c4e2bc25682c8b1c2a8c0d7c7e56be"
@@ -7526,6 +7522,16 @@ vuepress-html-webpack-plugin@^3.2.0:
     tapable "^1.0.0"
     toposort "^1.0.0"
     util.promisify "1.0.0"
+
+vuepress-progressbar@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/vuepress-progressbar/-/vuepress-progressbar-0.0.3.tgz#a38f869de819cba5a34102d21d3cad048373e694"
+  integrity sha512-PLzv0i4HTEQkcSI/Za7iYBIWIIubudgbrTPkSru1MOezpWywsvX8nIEKYMSmBVDCCLHgRC6BVzxZu4Z1vdlekA==
+
+vuepress-theme-lovely@^0.0.1:
+  version "0.0.1"
+  resolved "http://registry.npm.taobao.org/vuepress-theme-lovely/download/vuepress-theme-lovely-0.0.1.tgz#941564233a30ae7db2584bec9abac055fc498e4d"
+  integrity sha1-lBVkIzowrn2yWEvsmrrAVfxJjk0=
 
 vuepress@^1.0.0-alpha.44:
   version "1.0.0-alpha.44"

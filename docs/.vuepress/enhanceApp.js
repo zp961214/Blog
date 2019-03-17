@@ -1,4 +1,4 @@
-import VueProgressBar from 'vue-progressbar';
+import VueProgressBar from 'vuepress-progressbar';
 import routerConfig from '@/config/router';
 
 export default ({ Vue, router }) => {

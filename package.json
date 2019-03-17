@@ -14,8 +14,9 @@
     "date-fns": "^1.30.1",
     "decode-uri-component": "^0.2.0",
     "disqusjs": "^1.2.2",
-    "vue-progressbar": "^0.7.5",
-    "vuepress": "^1.0.0-alpha.44"
+    "vuepress": "^1.0.0-alpha.44",
+    "vuepress-progressbar": "^0.0.3",
+    "vuepress-theme-lovely": "^0.0.3"
   },
   "devDependencies": {
     "@vuepress/plugin-clean-urls": "^1.0.0-alpha.44",
@@ -31,7 +32,17 @@
     "sass-loader": "^7.1.0",
     "vue": "^2.5.16"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zp961214/vuepress-theme-lovely"
+  },
+  "homepage": "https://github.com/zp961214/vuepress-theme-lovely",
+  "keywords": [
+    "vuepress-theme",
+    "vuepress-theme-lovely",
+    "vuepress-theme-blog",
+    "theme-blog"
+  ],
   "license": "ISC",
   "main": "index.js"
 }

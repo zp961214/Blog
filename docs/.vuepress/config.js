@@ -3,6 +3,7 @@ const resolve = (...arg) => path.resolve(...arg);
 module.exports = {
     title: 'Hi,valor',
     description: 'Just playing around',
+    theme: 'lovely',
     head: [['link', { rel: 'icon', href: '/logo.png' }], ['mate', { name: 'viewport', content: 'width=device-width,initial-scale=1,maximum-scale=1' }]],
     locales: {
         '/': {
@@ -37,7 +38,7 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                '@theme': resolve(__dirname, 'theme'),
+                // '@theme': resolve(__dirname, 'theme'),
                 '@': resolve(__dirname),
                 '@assets': resolve(__dirname, 'assets')
             }
