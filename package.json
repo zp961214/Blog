@@ -16,7 +16,7 @@
     "disqusjs": "^1.2.2",
     "vuepress": "^1.0.0-alpha.44",
     "vuepress-progressbar": "^0.0.3",
-    "vuepress-theme-lovely": "^0.0.3"
+    "vuepress-theme-lovely": "^0.0.4"
   },
   "devDependencies": {
     "@vuepress/plugin-clean-urls": "^1.0.0-alpha.44",
@@ -27,8 +27,8 @@
     "eslint-config-prettier": "^3.6.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-vue": "^5.1.0",
-    "node-sass": "^4.11.0",
     "prettier": "^1.16.0",
+    "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.16"
   },
