@@ -2314,7 +2314,6 @@ decamelize@^2.0.0:
 decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/decode-uri-component/download/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
 
 deep-equal@^1.0.1:
   version "1.0.1"
@@ -7526,17 +7525,10 @@ vuepress-html-webpack-plugin@^3.2.0:
 vuepress-progressbar@^0.0.3:
   version "0.0.3"
   resolved "https://registry.npmjs.org/vuepress-progressbar/-/vuepress-progressbar-0.0.3.tgz#a38f869de819cba5a34102d21d3cad048373e694"
-  integrity sha512-PLzv0i4HTEQkcSI/Za7iYBIWIIubudgbrTPkSru1MOezpWywsvX8nIEKYMSmBVDCCLHgRC6BVzxZu4Z1vdlekA==
-
-vuepress-theme-lovely@^0.0.1:
-  version "0.0.1"
-  resolved "http://registry.npm.taobao.org/vuepress-theme-lovely/download/vuepress-theme-lovely-0.0.1.tgz#941564233a30ae7db2584bec9abac055fc498e4d"
-  integrity sha1-lBVkIzowrn2yWEvsmrrAVfxJjk0=
 
 vuepress@^1.0.0-alpha.44:
   version "1.0.0-alpha.44"
   resolved "http://registry.npm.taobao.org/vuepress/download/vuepress-1.0.0-alpha.44.tgz#044048047651f7e8890d48886e97f2ad5eb5ddea"
-  integrity sha1-BEBIBHZR9+iJDUiIbpfyrV613eo=
   dependencies:
     "@vuepress/core" "^1.0.0-alpha.44"
     "@vuepress/theme-default" "^1.0.0-alpha.44"
