@@ -30,6 +30,11 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-vue": "^5.1.0",
     "prettier": "^1.16.0",
+<<<<<<< HEAD
+=======
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+>>>>>>> 4d3e3bc734de0d3516d067c2715be53ebeefbb67
     "vue": "^2.5.16"
   },
   "repository": {
