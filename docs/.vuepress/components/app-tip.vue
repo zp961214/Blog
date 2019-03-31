@@ -7,8 +7,13 @@
             <p>或者觉得这个前端萌新很有趣，或者土豪任性。愿意打赏支持的话。我这里先谢过啦~</p>
             <h3>赞赏方式</h3>
             <ul>
-                <li><span @click="showAlipay = !showAlipay"> 支付宝扫一扫</span><img :style="AlipayStyle" src="~@theme/images/alipay_tip.png" alt="" /></li>
-                <li><span @click="showWepay = !showWepay">微信扫一扫</span><img :style="wepayStyle" src="~@theme/images/wepay_tip.png" alt="" /></li>
+                <li>
+                    <span @click="showAlipay = !showAlipay"> 支付宝扫一扫</span
+                    ><img :style="AlipayStyle" src="~@/assets/images/alipay_tip.png" alt="" />
+                </li>
+                <li>
+                    <span @click="showWepay = !showWepay">微信扫一扫</span><img :style="wepayStyle" src="~@/assets/images/wepay_tip.png" alt="" />
+                </li>
             </ul>
             <div id="disqus_thread" slot="footer"></div>
         </app-container>
@@ -17,10 +22,8 @@
 
 <script>
 import DisqusJS from 'disqusjs';
-// import appContainer from '@theme/components/app-container';
 export default {
     name: 'app-tip',
-    // components: { appContainer },
     data() {
         return {
             showAlipay: false,
