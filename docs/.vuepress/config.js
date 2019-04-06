@@ -14,6 +14,7 @@ module.exports = {
         useDefaultNav: false,
         // avatar: 'logo.png',
         bannertext: ['你好呀', 'valor'],
+        bannerPic: 'bg1.jpg',
         nav: [
             { text: '首页', link: '/', title: 'Home' },
             { text: '归档', link: '/archives/', title: 'Archives' },

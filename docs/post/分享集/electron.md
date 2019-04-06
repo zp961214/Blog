@@ -1,6 +1,7 @@
 ---
 title: 使用electron将web页面打包为桌面应用
 date: 2019-3-24
+word-count: 689
 ---
 
 Dash是一个非常棒的软件，在里面查询API很方面，但是他没有windows版本...，在mac上也是要收费的...，
