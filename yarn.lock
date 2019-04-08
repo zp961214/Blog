@@ -8802,10 +8802,10 @@ vuepress-progressbar@^0.0.3:
   resolved "http://registry.npm.taobao.org/vuepress-progressbar/download/vuepress-progressbar-0.0.3.tgz#a38f869de819cba5a34102d21d3cad048373e694"
   integrity sha1-o4+GnegZy6WjQQLSHTytBINz5pQ=
 
-vuepress-theme-lovely@0.0.5:
-  version "0.0.5"
-  resolved "http://registry.npm.taobao.org/vuepress-theme-lovely/download/vuepress-theme-lovely-0.0.5.tgz#023c1bab95cdf0efac54581b4429f6f0f4878ea6"
-  integrity sha1-Ajwbq5XN8O+sVFgbRCn28PSHjqY=
+vuepress-theme-lovely@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/vuepress-theme-lovely/-/vuepress-theme-lovely-0.0.6.tgz#a2bcbd415def2044dbada24a00cab1057e18a683"
+  integrity sha512-j3b4cNPpeyqYQCYK9/zsJJbPmA/of4juZK3wzwBZw1OidQFHx0cL2fSSWKKwfhbYd7vU7u6VcRAV0Jq5Ym0ENg==
   dependencies:
     "@vuepress/plugin-clean-urls" "^1.0.0-alpha.44"
     "@vuepress/plugin-google-analytics" "^1.0.0-alpha.44"

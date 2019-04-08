@@ -16,7 +16,7 @@
     "disqusjs": "^1.2.2",
     "vuepress": "^1.0.0-alpha.44",
     "vuepress-progressbar": "^0.0.3",
-    "vuepress-theme-lovely": "0.0.5",
+    "vuepress-theme-lovely": "0.0.6",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "@vuepress/plugin-clean-urls": "^1.0.0-alpha.44",

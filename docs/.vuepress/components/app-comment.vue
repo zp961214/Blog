@@ -11,6 +11,7 @@
 
 <script>
 import DisqusJS from 'disqusjs';
+
 export default {
     name: 'app-comment',
     data() {
