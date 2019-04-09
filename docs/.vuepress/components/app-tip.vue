@@ -1,6 +1,6 @@
 <template>
     <div class="app-tip">
-        <app-container>
+        <app-container @mounted="footerHandle">
             <h2>赞赏</h2>
             <p>我是valor，你也可以叫我“斯蒂芬张”，平时喜欢在业余时间折腾点东西，前端萌新一枚，请多指教~</p>
             <p>如果你感觉我的博客写的不错，或者对你有帮助。</p>
@@ -38,20 +38,21 @@ export default {
             return { width: this.showWepay ? '150px' : 0 };
         }
     },
-    methods: {},
-
-    mounted() {
-        new DisqusJS({
-            shortname: 'izp-me',
-            siteName: 'izp.me',
-            identifier: document.location.origin + document.location.pathname + document.location.search,
-            url: document.location.origin + document.location.pathname + document.location.search,
-            api: 'https://disqus.skk.moe/disqus/',
-            apikey: 'HplZkNQIgZwjGaxqaWErD6XyEl0hzqnV08qqfG8dhTCQRWUK6glTCw8vz12pMCM3',
-            admin: 'valor_coc',
-            adminLabel: ''
-        });
+    methods: {
+        footerHandle() {
+            new DisqusJS({
+                shortname: 'izp-me',
+                siteName: 'izp.me',
+                identifier: document.location.origin + document.location.pathname + document.location.search,
+                url: document.location.origin + document.location.pathname + document.location.search,
+                api: 'https://disqus.skk.moe/disqus/',
+                apikey: 'HplZkNQIgZwjGaxqaWErD6XyEl0hzqnV08qqfG8dhTCQRWUK6glTCw8vz12pMCM3',
+                admin: 'valor_coc',
+                adminLabel: ''
+            });
+        }
     },
+
     beforeDestroy() {}
 };
 </script>

@@ -15,6 +15,21 @@ module.exports = {
         // avatar: 'logo.png',
         bannertext: ['你好呀', 'valor'],
         bannerPic: 'bg1.jpg',
+        asideLink: [
+            'https://weibo.com/u/2525995803?is_all=1',
+            'https://www.zhihu.com/people/bao-da-ren-95-17/activities',
+            'https://twitter.com/szuZ482ZPfAcnGR',
+            '/tip/',
+            'https://github.com/zp961214'
+        ],
+        DisqusJS: {
+            shortname: 'izp-me',
+            siteName: 'izp.me',
+            api: 'https://disqus.skk.moe/disqus/',
+            apikey: 'HplZkNQIgZwjGaxqaWErD6XyEl0hzqnV08qqfG8dhTCQRWUK6glTCw8vz12pMCM3',
+            admin: 'valor_coc',
+            adminLabel: ''
+        },
         nav: [
             { text: '首页', link: '/', title: 'Home' },
             { text: '归档', link: '/archives/', title: 'Archives' },

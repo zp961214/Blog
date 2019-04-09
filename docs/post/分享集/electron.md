@@ -92,7 +92,7 @@ Dash是一个非常棒的软件，在里面查询API很方面，但是他没有w
 4.生成exe
 执行`npm run electron_build`，可以看到项目目录中多了一个`Devdocs-win32-x64`文件，找到里面的Devdocs.exe运行即可。
 
-![1553427234902](https://github.com/zp961214/Blog/blob/master/design/1553427234902.png)
+<!-- ![1553427234902](https://github.com/zp961214/Blog/blob/master/design/1553427234902.png) -->
 
 5.修改.exe图标
 
