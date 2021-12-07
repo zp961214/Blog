@@ -12,7 +12,6 @@ word-count: 1287
 - **方案1**： 将 DOM 改写成 canvas ，调用canvas的toBlob或者toDataURL方法即刻上传到七牛云或服务器
 
 - **方案2**： 使用第三方库`html2canvas.js`实现 canvas ， 在不更改页面已有DOM的情况下优雅生产canvas
-
 ### 解决方案的选择
 - 方案1：需要手动计算每个DOM元素的Computed Style，然后需要计算好元素在canvas的大小位置等属性。
  
