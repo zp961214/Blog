@@ -35,7 +35,7 @@
     "sass-loader": "^7.1.0",
     "vue": "^2.5.16"
   },
-  "repository": {
+  "repository": { 
     "type": "git",
     "url": "git+https://github.com/zp961214/vuepress-theme-lovely"
   },
